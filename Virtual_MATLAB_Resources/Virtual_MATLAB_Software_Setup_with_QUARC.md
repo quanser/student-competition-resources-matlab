@@ -9,7 +9,7 @@ This document will cover the following:
 - [System Requirements](#system-requirements)
 - [Setting up Quanser Interactive Labs (QLabs) with MATLAB](#setting-up-quanser-interactive-labs-qlabs-with-matlab)
 - [Setting Up the MATLAB Competition Resources](#setting-up-the-matlab-competition-resources)
-- [Running the Resources](#running-the-resources)
+- [Running the Self-Driving Stack Resources](#running-the-self-driving-stack-resources)
 
 By the end of this document, you will have the following development environment set up:
 
@@ -49,7 +49,7 @@ WARNING: Ensure you do not already have QUARC or Quanser Interactive Labs instal
 
 3. Follow this guide to install QUARC 2025 SP1 (this will install QLabs): [QUARC 2025 SP1 Installation Guide](https://download.quanser.com/doc/2025sp1/QUARC_Quick_Installation_Guide_Local_License.pdf)
 
-    a. Use the license file (.qlic) you installed in Step 1 along with the guide
+    - Use the license file (.qlic) you downloaded in Step 1 along with the guide
 
 4. Register for QLabs on the [Quanser Academic Portal](https://portal.quanser.com/Accounts/Register)
 
@@ -59,14 +59,18 @@ WARNING: Ensure you do not already have QUARC or Quanser Interactive Labs instal
 
 1. Follow the instructions here to download the Quanser Academic Resources: [Quanser Academic Resources Download](https://github.com/quanser/Quanser_Academic_Resources?tab=readme-ov-file#downloading-resources)
 
-2. Run the following two batch files:
+2. Run the following batch file with the following guidelines:
 
-   ```matlab
-   C:\Users\<username>\Documents\Quanser\1_setup\step_1_check_requirements.bat
-   C:\Users\<username>\Documents\Quanser\1_setup\configure_matlab.bat
-   ```
+    - You are using MATLAB only
+    - You are using both virtual and hardware
 
-    These resources will contain all the Quanser Resources for all of Quanser's products, but the [SDCS lab content](https://github.com/quanser/Quanser_Academic_Resources/blob/dev-windows/docs/start_labs.md#sdcs) will be the most relevant.
+    `C:\Users\<username>\Documents\Quanser\1_setup\step_1_check_requirements.bat`
+
+3. Run the following batch file:
+
+    `C:\Users\<username>\Documents\Quanser\1_setup\configure_matlab.bat`
+
+These resources will contain all the Quanser Resources for all of Quanser's products, but the [SDCS lab content](https://github.com/quanser/Quanser_Academic_Resources/blob/dev-windows/docs/start_labs.md#sdcs) will be the most relevant.
 
 **Second**, the Github repo containing the student competition resources for MATLAB will be downloaded:
 
@@ -74,11 +78,7 @@ WARNING: Ensure you do not already have QUARC or Quanser Interactive Labs instal
 
 2. Open a CMD Window in this directory by right-clicking in the blank space and selecting `Open in Terminal`
 
-<center>
-
-![open_in_terminal](../Pictures/open_in_terminal.png)
-
-</center>
+    ![open_in_terminal](../Pictures/open_in_terminal.png)
 
 3. Clone the following Github Repo into the Documents folder using the following command:
 
@@ -86,11 +86,11 @@ WARNING: Ensure you do not already have QUARC or Quanser Interactive Labs instal
     git clone https://github.com/quanser/student-competition-resources-matlab.git
     ```
 
-## Running the Resources
+## Running the Self-Driving Stack Resources
 
 Follow the below instructions to make sure everything is set up correctly and learn how to use the provided resources:
 
-1. Using MATLAB navigate to the `student-competition-resources-matlab` (make sure you double -click on folders and don't expand them)
+1. Using MATLAB navigate to the `/student-competition-resources-matlab/Virtual_MATLAB_Resources/self_driving_stack_resources` (make sure you double -click on folders and don't expand them)
 
 2. Open QLabs and navigate to `Self-Driving Car Studio` => `Plane`
 
@@ -98,7 +98,7 @@ Follow the below instructions to make sure everything is set up correctly and le
 
 3. Run the `Setup_Competition_Map.m` script
 
-    a. Make sure the `spawn_location` variable is `1` (top of the script)
+    -  Make sure the `spawn_location` variable is `1` (top of the script)
 
     It should look like this after running the script:
 
