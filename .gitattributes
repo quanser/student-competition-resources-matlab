@@ -1,0 +1,2 @@
+*.slx filter=lfs diff=lfs merge=lfs -text
+*.m filter=lfs diff=lfs merge=lfs -text
