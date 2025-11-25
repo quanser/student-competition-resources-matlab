@@ -76,7 +76,7 @@ WARNING: Ensure you do not already have QUARC or Quanser Interactive Labs instal
 
 <center>
 
-![open_in_terminal](/events/common/Pictures/open_in_terminal.png)
+![open_in_terminal](../Pictures/open_in_terminal.png)
 
 </center>
 
@@ -94,7 +94,7 @@ Follow the below instructions to make sure everything is set up correctly and le
 
 2. Open QLabs and navigate to `Self-Driving Car Studio` => `Plane`
 
-    ![qlabs plane](/events/common/Pictures/plane_world_qlabs.png)
+    ![qlabs plane](../Pictures/plane_world_qlabs.png)
 
 3. Run the `Setup_Competition_Map.m` script
 
@@ -102,13 +102,13 @@ Follow the below instructions to make sure everything is set up correctly and le
 
     It should look like this after running the script:
 
-    ![competition map](/events/common/Pictures/qlabs_setup_competition_map.png)
+    ![competition map](../Pictures/qlabs_setup_competition_map.png)
 
 4. Open `QCar2_Virtual_calibrate.slx`
 
 5. Use 'Monitor & Tune' to run the model
 
-    ![competition map](/events/common/Pictures/monitor_and_tune.png)
+    ![competition map](../Pictures/monitor_and_tune.png)
 
 6. Change `spawn_location` to `2` in the `Setup_Competition_Map.m` script
 
@@ -120,4 +120,4 @@ Follow the below instructions to make sure everything is set up correctly and le
 
 10. Use 'Monitor & Tune' to run the model
 
-    ![competition map](/events/common/Pictures/monitor_and_tune.png)
+    ![competition map](../Pictures/monitor_and_tune.png)
