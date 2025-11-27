@@ -10,6 +10,7 @@ This document will cover the following:
 - [Setting up Quanser Interactive Labs (QLabs) with MATLAB](#setting-up-quanser-interactive-labs-qlabs-with-matlab)
 - [Setting Up the MATLAB Competition Resources](#setting-up-the-matlab-competition-resources)
 - [Running the Self-Driving Stack Resources](#running-the-self-driving-stack-resources)
+- [Learning the Self-Driving Stack](#learning-the-self-driving-stack)
 
 By the end of this document, you will have the following development environment set up:
 
@@ -98,7 +99,7 @@ Follow the below instructions to make sure everything is set up correctly and le
 
 3. Run the `Setup_Competition_Map.m` script
 
-    -  Make sure the `spawn_location` variable is `1` (top of the script)
+    - Make sure the `spawn_location` variable is `1` (top of the script)
 
     It should look like this after running the script:
 
@@ -121,3 +122,9 @@ Follow the below instructions to make sure everything is set up correctly and le
 10. Use 'Monitor & Tune' to run the model
 
     ![competition map](../Pictures/monitor_and_tune.png)
+
+If something is not working correctly, please double-check that you have gone through the steps correctly. If the issue persists, you may raise an issue in the [Issues tab](https://github.com/quanser/student-competition-resources-matlab/issues)
+
+## Learning the Self-Driving Stack
+
+Once everything is confirmed and working, you can take a look at the [development guide](./Virtual_MATLAB_Development_Guide.md).
