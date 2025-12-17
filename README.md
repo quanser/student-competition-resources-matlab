@@ -10,6 +10,10 @@ This repo contains all the resources available for the Quanser MATLAB-based comp
 
 [Virtual MATLAB Development Guide](./Virtual_MATLAB_Resources/Virtual_MATLAB_Development_Guide.md): Contains important details about how the self-driving stack resources are meant to be used.
 
+## 💻 Software Requirements 💻
+
+**Software requirements depend on the competition you are participating in**, so please refer to the posted software requirements on the correct [competition page](https://quanser.github.io/student-competitions/).
+
 ## ❓ FAQ ❓
 
 For any bugs in the released resources, please post an issue in the [Github Issues](https://github.com/quanser/student-competition-resources-matlab/issues)

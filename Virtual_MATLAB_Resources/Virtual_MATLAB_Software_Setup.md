@@ -44,15 +44,17 @@ Follow the below steps to set up QLabs with MATLAB:
 
 WARNING: Ensure you do not already have QUARC or Quanser Interactive Labs installed on this PC (uninstall them if you do).
 
-1. Download the [Competition License file](https://quanserinc.box.com/shared/static/q5o3t3yl5att8h4qsvzzqhkgy3chroe5.qlic)
+1. Ensure you have [registered for your competition](https://quanser.github.io/student-competitions/) (Necessary for gaining access to QLabs). This could take a few days.
 
-2. Download the [QUARC 2025 SP1 Installer](https://download.quanser.com/installers/2025/install_quarc.exe)
+2. Download the [Competition License file](https://quanserinc.box.com/shared/static/q5o3t3yl5att8h4qsvzzqhkgy3chroe5.qlic)
 
-3. Follow this guide to install QUARC 2025 SP1 (this will install QLabs): [QUARC 2025 SP1 Installation Guide](https://download.quanser.com/doc/2025sp1/QUARC_Quick_Installation_Guide_Local_License.pdf)
+3. Download the [QUARC 2025 SP1 Installer](https://download.quanser.com/installers/2025/install_quarc.exe)
+
+4. Follow this guide to install QUARC 2025 SP1 (this will install QLabs): [QUARC 2025 SP1 Installation Guide](https://download.quanser.com/doc/2025sp1/QUARC_Quick_Installation_Guide_Local_License.pdf)
 
     - Use the license file (.qlic) you downloaded in Step 1 along with the guide
 
-4. Register for QLabs on the [Quanser Academic Portal](https://portal.quanser.com/Accounts/Register)
+5. Register for QLabs on the [Quanser Academic Portal](https://portal.quanser.com/Accounts/Register)
 
 ## Setting Up the MATLAB Competition Resources
 
