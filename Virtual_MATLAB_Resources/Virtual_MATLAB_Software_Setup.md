@@ -12,8 +12,6 @@ This document will cover the following:
 - [Running the Self-Driving Stack Resources](#running-the-self-driving-stack-resources)
 - [Learning the Self-Driving Stack](#learning-the-self-driving-stack)
 
-By the end of this document, you will have the following development environment set up:
-
 ## System Requirements
 
 `OS:` Windows 10 or 11
@@ -124,6 +122,10 @@ Follow the below instructions to make sure everything is set up correctly and le
 10. Use 'Monitor & Tune' to run the model
 
     ![competition map](../Pictures/monitor_and_tune.png)
+
+You should see the QCar begin to complete a lap of the outside-most lane as shown below:
+
+![1 lap self drivning stack](../Pictures/1_lap_self_driving_stack.gif)
 
 If something is not working correctly, please double-check that you have gone through the steps correctly. If the issue persists, you may raise an issue in the [Issues tab](https://github.com/quanser/student-competition-resources-matlab/issues)
 

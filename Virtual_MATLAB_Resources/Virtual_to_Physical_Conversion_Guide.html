@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Virtual MATLAB Software Setup 🪧</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="../../../pages/assets/style.css">
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="header-inner">
+                <div class="header-left">
+                    
+                </div>
+
+                <div class="header-middle">
+                    <h1>Quanser Student Competitions</h1>
+                </div>
+
+                <div class="header-right">
+                    <img src="../../../pages/assets/logos/full colour_dark background_tagline.png" alt="Quanser Student Competitions logo" class="site-logo">
+                </div>
+            </div>
+            <div class="header-banner">
+                <img src="../../../pages/assets/banners/quanser_banner.jpg" alt="Competition banner" class="header-banner-img">
+            </div>
+        </header>
+
+        <main class="content">
+            <h1 id="virtual-matlab-software-setup">Virtual MATLAB Software Setup 🪧 <!-- omit in toc --></h1>
+<p>Please go through the following steps to set up a computer to use the QCar with MATLAB in Quanser Interactive Labs.</p>
+<h2 id="description">Description <!-- omit in toc --></h2>
+<p>This document will cover the following:</p>
+<ul>
+<li><a href="#background-context">Background Context</a></li>
+<li><a href="#conversion-guide">Conversion Guide</a></li>
+<li><a href="#quick-conversion-table">Quick Conversion Table</a></li>
+<li><a href="#hil-initialize">HIL Initialize</a></li>
+<li><a href="#ranging-sensor">Ranging Sensor</a></li>
+<li><a href="#video3d-initialize">Video3D Initialize</a></li>
+<li><a href="#video-capture">Video Capture</a></li>
+<li><a href="#led-strip">LED Strip</a></li>
+</ul>
+<h2 id="background-context">Background Context</h2>
+<p>If you have followed the <a href="./Virtual_MATLAB_Software_Setup.html">Virtual MATLAB Software Setup Guide</a>, then the self-driving stack that you are developing on is configured to access virtual hardware. This is done using a special Device Identifier or URI in the <code>HIL Initialize</code>, <code>Ranging Sensor</code>, <code>Video3D Initialize</code>, <code>LED Strip</code>, and <code>Video Capture</code>. The Device Identifier or the URI contains a TCP port that communicates with QLabs to get the simulated sensor's data.</p>
+<p>When converting your Simulink model from virtual to physical, you will need to change these Device Identifiers and URIs to point to the hardware instead of the virtual sensors.</p>
+<h2 id="conversion-guide">Conversion Guide</h2>
+<p>Below contains a list of the blocks that will need to be changed and what to change within the block settings.</p>
+<h3 id="quick-conversion-table">Quick Conversion Table</h3>
+<p>This table contains the parameters you need to change, but the subsequent subsections contain screenshots.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Simulink Block</th>
+<th style="text-align: center;">Parameter Name</th>
+<th style="text-align: center;">Virtual Setting</th>
+<th style="text-align: center;">Physical Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">HIL Initialize</td>
+<td style="text-align: center;">Board identifier</td>
+<td style="text-align: center;">0@tcpip://localhost:18960</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ranging Sensor</td>
+<td style="text-align: center;">URI</td>
+<td style="text-align: center;">tcpip://localhost:18966</td>
+<td style="text-align: center;">serial-cpu://localhost:1?baud='256000',word='8',parity='none',stop='1',flow='none',dsr='on'</td>
+</tr>
+<tr>
+<td style="text-align: left;">Video3D Initialize</td>
+<td style="text-align: center;">Device identifier</td>
+<td style="text-align: center;">0@tcpip://localhost:18965</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">Video Capture (Right CSI)</td>
+<td style="text-align: center;">Device identifier</td>
+<td style="text-align: center;">0@tcpip://localhost:18961</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">Video Capture (Rear CSI)</td>
+<td style="text-align: center;">Device identifier</td>
+<td style="text-align: center;">1@tcpip://localhost:18962</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Video Capture (Front CSI)</td>
+<td style="text-align: center;">Device identifier</td>
+<td style="text-align: center;">2@tcpip://localhost:18963</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Video Capture (Left CSI)</td>
+<td style="text-align: center;">Device identifier</td>
+<td style="text-align: center;">3@tcpip://localhost:18964</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">LED Strip</td>
+<td style="text-align: center;">URI</td>
+<td style="text-align: center;">tcpip://localhost:18969</td>
+<td style="text-align: center;">spi://localhost:1?word='8',baud='3333333',lsb='off',memsize='420',frame='1'</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hil-initialize">HIL Initialize</h3>
+<p>Change <code>Board identifier</code> from <code>0@tcpip://localhost:18960</code> to <code>0</code>:</p>
+<p><img alt="v2p hil initialize" src="../Pictures/v2p_hilInitialize_01.png"/></p>
+<h3 id="ranging-sensor">Ranging Sensor</h3>
+<p>Change <code>URI</code> from <code>tcpip://localhost:18966</code> to <code>serial-cpu://localhost:1?baud='256000',word='8',parity='none',stop='1',flow='none',dsr='on'</code></p>
+<p><img alt="v2p ranging sensor block" src="../Pictures/v2p_rangingSensor_01.png"/></p>
+<h3 id="video3d-initialize">Video3D Initialize</h3>
+<p>Change <code>Device identifier</code> from <code>0@tcpip://localhost:18965</code> to <code>0</code>:</p>
+<p><img alt="v2p video 3D initialize" src="../Pictures/v2p_video3DInitialize_01.png"/></p>
+<h3 id="video-capture">Video Capture</h3>
+<p>The following are the conversions needed for each CSI Camera:</p>
+<ul>
+<li>Change <code>0@tcpip://localhost:18961</code> to <code>0</code> (Right)</li>
+<li>Change <code>1@tcpip://localhost:18962</code> to <code>1</code> (Rear)</li>
+<li>Change <code>2@tcpip://localhost:18963</code> to <code>2</code> (Front)</li>
+<li>Change <code>3@tcpip://localhost:18964</code> to <code>3</code> (Left)</li>
+</ul>
+<p><img alt="vp2 video capture" src="../Pictures/v2p_videoCapture_01.png"/></p>
+<h3 id="led-strip">LED Strip</h3>
+<p>Change <code>URI</code> from <code>tcpip://localhost:18969</code> to <code>spi://localhost:1?word='8',baud='3333333',lsb='off',memsize='420',frame='1'</code>:</p>
+<p><img alt="v2p led strip" src="../Pictures/v2p_ledStrip_01.png"/></p>
+        </main>
+
+        <footer class="site-footer">
+            <p>&copy; 2025 Quanser. All Rights Reserved. </p>
+        </footer>
+    </body>
+</html>

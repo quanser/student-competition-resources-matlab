@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>MATLAB FAQ</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="../../../pages/assets/style.css">
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="header-inner">
+                <div class="header-left">
+                    
+                </div>
+
+                <div class="header-middle">
+                    <h1>Quanser Student Competitions</h1>
+                </div>
+
+                <div class="header-right">
+                    <img src="../../../pages/assets/logos/full colour_dark background_tagline.png" alt="Quanser Student Competitions logo" class="site-logo">
+                </div>
+            </div>
+            <div class="header-banner">
+                <img src="../../../pages/assets/banners/quanser_banner.jpg" alt="Competition banner" class="header-banner-img">
+            </div>
+        </header>
+
+        <main class="content">
+            <h1 id="matlab-faq">MATLAB FAQ <!-- omit in toc --></h1>
+<p>Common issues that get discovered will be posted here.</p>
+<h2 id="list-of-faq">List of FAQ <!-- omit in toc --></h2>
+<ul>
+<li><a href="#-software-requirements-">💻 Software Requirements 💻</a></li>
+<li><a href="#-faq-">❓ FAQ ❓</a></li>
+</ul>
+<h2 id="how-can-i-view-my-fps-and-cps">How can I view my fps and cps</h2>
+<p>To view the frames per second and comms per second do the following:</p>
+<ul>
+<li>On the main page of QLabs click on settings</li>
+<li>
+<p>Turn on 'show advanced options':
+<img alt="Turning on Advanced Settings" src="../Pictures/qlabs_turn_on_advanced_options.png"/></p>
+</li>
+<li>
+<p>Navigate to the Plane world in QLabs</p>
+</li>
+<li>Turn on 'show comms per second' and 'show frames per second' in the settings:
+<img alt="Turning on CPS and FPS" src="../Pictures/qlabs_turn_on_fps_cps.png"/></li>
+</ul>
+<h2 id="how-can-i-unlock-my-fps">How can I Unlock My FPS</h2>
+<p>Navigate to the advanced settings in the QLabs Plane world:</p>
+<p><img alt="advanced settings in qlabs" src="../Pictures/qlabs_goto_advanced_settings.png"/></p>
+<p>Framerate can be unlocked or the limit can be raised, which also unlocks the communications per second (CPS) with QLabs. This determines how fast you can get data from QLabs, which is important for control algorithms.</p>
+<p><img alt="advanced settings page" src="../Pictures/qlabs_advanced_setting.png"/></p>
+<h2 id="im-getting-a-path-limit-error-in-simulink">I'm getting a Path Limit Error in Simulink</h2>
+<p>MATLAB does not like it when the MATLAB PATH is over 260 characters. When running the self-driving stack, many files get generated with long paths. This can flag an error in the Simulink Generating Code process.</p>
+<p>Error:</p>
+<p><img alt="long path error" src="../Pictures/Simulink_Long_Path_Error.png"/></p>
+<p>If this happens, please move the whole <code>/self-driving-stack-resources</code> folder to a shorter path.</p>
+        </main>
+
+        <footer class="site-footer">
+            <p>&copy; 2025 Quanser. All Rights Reserved. </p>
+        </footer>
+    </body>
+</html>
