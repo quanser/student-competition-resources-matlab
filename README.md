@@ -16,7 +16,7 @@ This repo contains all the resources available for the Quanser MATLAB-based comp
 
 ## ❓ FAQ ❓
 
-Some common issues are listed on this Github's FAQ Page: [MATLAB FAQ](../common/Virtual_MATLAB_Resources/MATLAB_FAQ.md)
+Some common issues are listed on this Github's FAQ Page: [MATLAB FAQ](./Virtual_MATLAB_Resources/MATLAB_FAQ.md)
 
 For any bugs in the released resources, please post an issue in the [Github Issues](https://github.com/quanser/student-competition-resources-matlab/issues)
 
