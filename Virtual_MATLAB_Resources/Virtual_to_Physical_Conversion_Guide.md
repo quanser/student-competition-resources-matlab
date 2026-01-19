@@ -7,13 +7,14 @@ Please go through the following steps to set up a computer to use the QCar with 
 This document will cover the following:
 
 - [Background Context](#background-context)
-- [Conversion Guide](#conversion-guide)
+- [I/O Conversion Guide](#io-conversion-guide)
   - [Quick Conversion Table](#quick-conversion-table)
   - [HIL Initialize](#hil-initialize)
   - [Ranging Sensor](#ranging-sensor)
   - [Video3D Initialize](#video3d-initialize)
   - [Video Capture](#video-capture)
   - [LED Strip](#led-strip)
+- [Switching the QUARC Target](#switching-the-quarc-target)
 
 ## Background Context
 
@@ -21,7 +22,9 @@ If you have followed the [Virtual MATLAB Software Setup Guide](./Virtual_MATLAB_
 
 When converting your Simulink model from virtual to physical, you will need to change these Device Identifiers and URIs to point to the hardware instead of the virtual sensors.
 
-## Conversion Guide
+You will also need to switch the target of the generated code from your Windows machine to the QCar 2, which is an Nvidia AGX Orin target. This will be addressed below.
+
+## I/O Conversion Guide
 
 Below contains a list of the blocks that will need to be changed and what to change within the block settings.
 
@@ -74,3 +77,8 @@ The following are the conversions needed for each CSI Camera:
 Change `URI` from `tcpip://localhost:18969` to `spi://localhost:1?word='8',baud='3333333',lsb='off',memsize='420',frame='1'`:
 
 ![v2p led strip](../Pictures/v2p_ledStrip_01.png)
+
+## Switching the QUARC Target
+
+
+
