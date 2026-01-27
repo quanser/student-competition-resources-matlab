@@ -15,6 +15,10 @@ This document will cover the following:
 
 ## System Requirements
 
+`Installation Time:` It will take around **2 hours** to install everything
+
+`Storage:`: Installing everything will consume around **35GB of storage**
+
 `OS:` Windows 10 or 11
 
 `MATLAB Version:` 2024a or higher
@@ -124,7 +128,7 @@ Follow the below instructions to make sure everything is set up correctly and le
 
     ![competition map](../Pictures/monitor_and_tune.png)
 
-You should see the QCar begin to complete a lap of the outside-most lane as shown below:
+You should see the QCar begin to complete a lap of the outside-most lane as shown below (sped up):
 
 ![1 lap self drivning stack](../Pictures/1_lap_self_driving_stack.gif)
 
