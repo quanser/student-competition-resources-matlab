@@ -10,6 +10,7 @@ This document will cover the following:
 - [Setting up Quanser Interactive Labs (QLabs) with MATLAB](#setting-up-quanser-interactive-labs-qlabs-with-matlab)
 - [Setting Up the MATLAB Competition Resources](#setting-up-the-matlab-competition-resources)
 - [Running the Self-Driving Stack Resources](#running-the-self-driving-stack-resources)
+- [MATLAB Setup Real Scenario](#matlab-setup-real-scenario)
 - [Learning the Self-Driving Stack](#learning-the-self-driving-stack)
 
 ## System Requirements
@@ -128,6 +129,10 @@ You should see the QCar begin to complete a lap of the outside-most lane as show
 ![1 lap self drivning stack](../Pictures/1_lap_self_driving_stack.gif)
 
 If something is not working correctly, please double-check that you have gone through the steps correctly. If the issue persists, you may raise an issue in the [Issues tab](https://github.com/quanser/student-competition-resources-matlab/issues)
+
+## MATLAB Setup Real Scenario
+
+A more realistic traffic scenario is provided through the [`Setup_Real_Scenario.m`](../Virtual_MATLAB_Resources/self_driving_stack_resources/Setup_Real_Scenario.m) file. This script spawns signage and traffic lights. This script runs CONTINUOUSLY in a loop to control the traffic lights, so it will need to be run in a separate MATLAB session from the `VIRTUAL_self_driving_stack_v2.slx`. To open another session of matlab, you will need to right-click on the MATLAB icon and select your version of MATLAB again.
 
 ## Learning the Self-Driving Stack
 
