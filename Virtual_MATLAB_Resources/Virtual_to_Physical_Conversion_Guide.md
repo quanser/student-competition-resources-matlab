@@ -80,5 +80,12 @@ Change `URI` from `tcpip://localhost:18969` to `spi://localhost:1?word='8',baud=
 
 ## Switching the QUARC Target
 
+Change the target from a Windows Target (used for QLabs) to the QCar 2 target. To do this select the `QUARC Tab` in Simulink, then the `QUARC Targets` drop down menu, then the `quarc_linux_qcar2.tlc` target:
 
+![select quarc qcar2 target](../Pictures/v2p_set_QUARC_target.png)
 
+Change the ip address to the ip address displayed on the QCar:
+
+![change ip address for qcar](../Pictures/v2p_set_ip_address.png)
+
+If you do not have an ip address on the LCD of the QCar, please refer to the [User Manual for Connectivity](https://github.com/quanser/Quanser_Academic_Resources/blob/dev-windows/3_user_manuals/qcar2/user_manual_connectivity.pdf).
