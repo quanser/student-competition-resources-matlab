@@ -9,7 +9,6 @@ map_type = 1;
 % PHYSICAL = 2
 qcar_types = 1;
 
-
 %% Setting Qcar Variables
 
 % Various Timing Loops
@@ -44,8 +43,8 @@ if qcar_types == 1 % IF VIRTUAL
     GyroKF_X0 = [0;0];
     GyroKF_P0 = eye(2);
     
-    GyroKF_Q = diag([0.01, 0.001]); 
-    GyroKF_R = 0.09; % was 0.01
+    GyroKF_Q = diag([0.001, 0.001]); 
+    GyroKF_R = 0.05;
     
     
     % QCar EKF
@@ -56,10 +55,10 @@ if qcar_types == 1 % IF VIRTUAL
     QcarKF_X0 = [0; 0; 0];
     QCarEKF_P0 = eye(3);
     
-    QCarEKF_Q = diag([0.001, 0.001, 0.001]); %was 0.00001, 0.00001, 0.00001
+    QCarEKF_Q = diag([0.001, 0.001, 0.001]);
     
     QCarEKF_R_heading = diag(0.1);
-    QCarEKF_R_combined = diag([0.01, 0.01, 0.001]);
+    QCarEKF_R_combined = diag([0.005, 0.005, 0.001]);
 
 elseif qcar_types == 2 % IF PHYSICAL
     

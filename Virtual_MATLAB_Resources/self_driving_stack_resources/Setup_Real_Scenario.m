@@ -5,6 +5,79 @@
 % 2 => taxi hub area
 spawn_location = 2;
 
+%% Traffic Light Function
+
+% Cleanup Function
+
+function cleanupQLabs(qlabs)
+    qlabs.close()
+end
+
+function trafficLightController(qlabs)
+
+    disp('running traffic controller')
+    try
+    
+        clear trafficLight1 trafficLight2 trafficLight3 trafficLight4
+    
+        trafficLight1 = QLabsTrafficLight(qlabs);
+        trafficLight2 = QLabsTrafficLight(qlabs);
+        trafficLight3 = QLabsTrafficLight(qlabs);
+        trafficLight4 = QLabsTrafficLight(qlabs);
+    
+        %intersection 1
+        trafficLight1.spawn_id_degrees(1, [0.6, 1.55, 0.006], [0,0,0], [0.1, 0.1, 0.1], 0, false);
+        trafficLight2.spawn_id_degrees(2, [-0.6, 1.28, 0.006], [0,0,90], [0.1, 0.1, 0.1], 0, false);
+        trafficLight3.spawn_id_degrees(3, [-0.37, 0.3, 0.006], [0,0,180], [0.1, 0.1, 0.1], 0, false);
+        trafficLight4.spawn_id_degrees(4, [0.75, 0.48, 0.006], [0,0,-90], [0.1, 0.1, 0.1], 0, false);
+    
+        intersection1Flag = 0;
+
+        cleanup = onCleanup(@()cleanupQLabs(qlabs));
+    
+        while(true)
+    
+            %intersection 1
+            disp('in loop')
+            if intersection1Flag == 0
+                trafficLight1.set_color(QLabsTrafficLight.COLOR_RED);
+                trafficLight3.set_color(QLabsTrafficLight.COLOR_RED);
+                trafficLight2.set_color(QLabsTrafficLight.COLOR_GREEN);
+                trafficLight4.set_color(QLabsTrafficLight.COLOR_GREEN);
+            end
+    
+            if intersection1Flag == 1
+                trafficLight1.set_color(QLabsTrafficLight.COLOR_RED);
+                trafficLight3.set_color(QLabsTrafficLight.COLOR_RED);
+                trafficLight2.set_color(QLabsTrafficLight.COLOR_YELLOW);
+                trafficLight4.set_color(QLabsTrafficLight.COLOR_YELLOW);
+            end
+    
+            if intersection1Flag == 2
+                trafficLight1.set_color(QLabsTrafficLight.COLOR_GREEN);
+                trafficLight3.set_color(QLabsTrafficLight.COLOR_GREEN);
+                trafficLight2.set_color(QLabsTrafficLight.COLOR_RED);
+                trafficLight4.set_color(QLabsTrafficLight.COLOR_RED);
+            end
+    
+            if intersection1Flag == 3
+                trafficLight1.set_color(QLabsTrafficLight.COLOR_YELLOW);
+                trafficLight3.set_color(QLabsTrafficLight.COLOR_YELLOW);
+                trafficLight2.set_color(QLabsTrafficLight.COLOR_RED);
+                trafficLight4.set_color(QLabsTrafficLight.COLOR_RED);
+            end
+    
+            intersection1Flag = mod((intersection1Flag + 1),4);
+    
+            pause(5)
+        end
+    
+    catch
+        qlabs.close()
+    end
+end
+
+
 %% Set up QLabs Connection and Variables
 
 % MATLAB Path
@@ -240,61 +313,5 @@ pause(2)
 system(['quarc_run -D -r -t tcpip://localhost:17000 ', file_workspace]);
 pause(3)
 
-try
-
-    clear trafficLight1 trafficLight2 trafficLight3 trafficLight4
-
-    trafficLight1 = QLabsTrafficLight(qlabs);
-    trafficLight2 = QLabsTrafficLight(qlabs);
-    trafficLight3 = QLabsTrafficLight(qlabs);
-    trafficLight4 = QLabsTrafficLight(qlabs);
-
-    %intersection 1
-    trafficLight1.spawn_id_degrees(1, [0.6, 1.55, 0.006], [0,0,0], [0.1, 0.1, 0.1], 0, false);
-    trafficLight2.spawn_id_degrees(2, [-0.6, 1.28, 0.006], [0,0,90], [0.1, 0.1, 0.1], 0, false);
-    trafficLight3.spawn_id_degrees(3, [-0.37, 0.3, 0.006], [0,0,180], [0.1, 0.1, 0.1], 0, false);
-    trafficLight4.spawn_id_degrees(4, [0.75, 0.48, 0.006], [0,0,-90], [0.1, 0.1, 0.1], 0, false);
-
-    intersection1Flag = 0;
-
-    while(true)
-
-        %intersection 1
-
-        if intersection1Flag == 0
-            trafficLight1.set_color(QLabsTrafficLight.COLOR_RED);
-            trafficLight3.set_color(QLabsTrafficLight.COLOR_RED);
-            trafficLight2.set_color(QLabsTrafficLight.COLOR_GREEN);
-            trafficLight4.set_color(QLabsTrafficLight.COLOR_GREEN);
-        end
-
-        if intersection1Flag == 1
-            trafficLight1.set_color(QLabsTrafficLight.COLOR_RED);
-            trafficLight3.set_color(QLabsTrafficLight.COLOR_RED);
-            trafficLight2.set_color(QLabsTrafficLight.COLOR_YELLOW);
-            trafficLight4.set_color(QLabsTrafficLight.COLOR_YELLOW);
-        end
-
-        if intersection1Flag == 2
-            trafficLight1.set_color(QLabsTrafficLight.COLOR_GREEN);
-            trafficLight3.set_color(QLabsTrafficLight.COLOR_GREEN);
-            trafficLight2.set_color(QLabsTrafficLight.COLOR_RED);
-            trafficLight4.set_color(QLabsTrafficLight.COLOR_RED);
-        end
-
-        if intersection1Flag == 3
-            trafficLight1.set_color(QLabsTrafficLight.COLOR_YELLOW);
-            trafficLight3.set_color(QLabsTrafficLight.COLOR_YELLOW);
-            trafficLight2.set_color(QLabsTrafficLight.COLOR_RED);
-            trafficLight4.set_color(QLabsTrafficLight.COLOR_RED);
-        end
-
-        intersection1Flag = mod((intersection1Flag + 1),4);
-
-        pause(5)
-    end
-
-catch
-    qlabs.close()
-end
-qlabs.close()
+% Run traffic controller
+trafficLightController(qlabs)
