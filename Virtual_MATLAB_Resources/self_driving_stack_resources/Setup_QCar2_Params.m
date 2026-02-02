@@ -30,9 +30,32 @@ SPR_qcar2 = 1000; %Scans per revolution for the LiDAR scan (Long Mode)
 % define where the calibration was taken from (2 options)
 if map_type == 1
     cal_pos = [0, 2, 0] % large map calibration spot
+    disp('Large SDCS Map Being Used ...')
 else
     cal_pos = [0, 0, 0] % small map calibration spot
+    disp('Small SDCS Map Being Used ...')
 end
+
+if qcar_types == 1
+    disp('Params Configured for VIRTUAL QCAR ...')
+elseif qcar_types == 2
+    disp('Params Configured for PHYSICAL QCAR ...')
+end
+
+%% QCar Steering PD Controller
+
+if qcar_types == 1 % IF VIRTUAL
+
+    steering_Kp = 1.2;
+    steering_Kd = 0.6;
+
+elseif qcar_types == 2 % IF PHYSICAL
+    
+    steering_Kp = 1;
+    steering_Kd = 0.1;
+
+end
+
 
 %% QCar KF + EKF
 
@@ -97,7 +120,7 @@ if qcar_types == 1 % FOR VIRTUAL\
     qcar2_lidar_to_body_rotation = 0;
 elseif qcar_types == 2 % FOR PHYSICAL
     qcar2_virtual_to_physical_lidar_rotation = 0; %remove offset when physical
-    qcar2_lidar_to_map_rotation = 0;
+    qcar2_lidar_to_map_rotation = 2*pi/180;
     qcar2_lidar_to_body_rotation = -pi;
 end
 
