@@ -1,6 +1,6 @@
-# Virtual MATLAB Software Setup 🪧 <!-- omit in toc -->
+# Virtual to Physical Hardware Conversion Guide 🪧 <!-- omit in toc -->
 
-Please go through the following steps to set up a computer to use the QCar with MATLAB in Quanser Interactive Labs.
+Please go through the following document to learn how to convert a virtual Simulink model into one that can use Quanser Hardware.
 
 ## Description <!-- omit in toc -->
 
