@@ -1,14 +1,17 @@
 # Welcome to the Quanser MATLAB Competition Resources
 
-This repo contains all the resources available for the Quanser MATLAB-based competitions!
+This branch of the repo contains all the resources intended for users who are only using a Virtual Setup (no physical QCar2).
 
 ## 🗄️ Resource List 🗄️
 
 [Virtual MATLAB Software Setup Guide](./Virtual_MATLAB_Resources/Virtual_MATLAB_Software_Setup.md): Contains the instructions and requirements to set up your computer to utilize the Quanser Resources. **START HERE IF LOST**.
 
-[Virtual MATLAB Development Guide](./Virtual_MATLAB_Resources/Virtual_MATLAB_Development_Guide.md): Contains important details about how the self-driving stack resources are meant to be used.
+[Virtual MATLAB Manual Software Setup Guide](./Virtual_MATLAB_Resources/Virtual_MATLAB_Manual_Software_Setup.md): Contains manual setup instructions if the automated script does not work.
 
-[Virtual to Physical Conversion Guide](./Virtual_MATLAB_Resources/Virtual_to_Physical_Conversion_Guide.md): Contains important details on how to convert a Simulink model for the virtual QCar to one for a physical QCar.
+[How to run the Self Driving Stack](./Virtual_MATLAB_Resources/Virtual_MATLAB_How_to_Run_the_Stack.md): Contains the instructions on how to use the self driving stack.
+
+[Virtual MATLAB Development Guide](./Virtual_MATLAB_Resources/Virtual_MATLAB_Development_Guide.md): Contains important details about how the self-driving stack resources are meant to be used.
+ the virtual QCar to one for a physical QCar.
 
 ## 💻 Software Requirements 💻
 
