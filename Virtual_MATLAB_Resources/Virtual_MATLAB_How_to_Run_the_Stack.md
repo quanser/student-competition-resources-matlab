@@ -15,7 +15,7 @@ Please use the following guide to run the Self Driving Stack after completing th
 
 Follow the below instructions to make sure everything is set up correctly and learn how to use the provided resources:
 
-1. Using MATLAB navigate to the `/student-competition-resources-matlab/Virtual_MATLAB_Resources/self_driving_stack_resources` (make sure you double -click on folders and don't expand them)
+1. Using MATLAB navigate to the `Documents/student-competition-resources-matlab/Virtual_MATLAB_Resources/self_driving_stack_resources` (make sure you double -click on folders and don't expand them)
 
 2. Open QLabs and navigate to `Self-Driving Car Studio` => `Plane`
 
@@ -37,9 +37,9 @@ If something is not working correctly, please double-check that you have gone th
 
 In the `Setup_QCar2_Params.m` script, you will be prompted to setup the real scenario if it is desired.
 
-A more realistic traffic scenario is provided through the [`Setup_Real_Scenario.m`](../Virtual_MATLAB_Resources/self_driving_stack_resources/Setup_Real_Scenario.m) file. This script spawns signage and traffic lights. 
+A more realistic traffic scenario is provided through the [`Setup_Real_Scenario.m`](../Virtual_MATLAB_Resources/self_driving_stack_resources/Setup_Real_Scenario.m) file. This script spawns signage and traffic lights.
 
-This script runs CONTINUOUSLY in a loop to control the traffic lights, so the `Setup_QCar2_Params.m` will open a MATLAB Command Window to run the script in a separate instance of MATLAB.
+This script runs CONTINUOUSLY in a loop to control the traffic lights. If this scenario is desired selecting `y` in the `Setup_QCar2_Params.m` script will open a MATLAB Command Window to run the script in a separate instance of MATLAB.
 
 ## Learning the Self-Driving Stack
 
