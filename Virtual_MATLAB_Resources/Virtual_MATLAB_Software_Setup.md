@@ -1,6 +1,6 @@
 # Virtual MATLAB Software Setup 🪧 <!-- omit in toc -->
 
-Please go through the following steps to set up a computer with the Quanser Interactive Labs add-on to participate in Virtual ONLY competitions.
+Please go through the following steps to set up a computer with the Quanser Interactive Labs add-on to participate in Virtual ONLY competitions. If these instructions do not work, there are [Manual Setup Instructions](./Virtual_MATLAB_Manual_Software_Setup.md).
 
 ## Description <!-- omit in toc -->
 
@@ -53,4 +53,4 @@ Once you see `Everything should now be set up for running the Student Competitio
 
 ## Next Step
 
-Once everything has been setup correctly according to the script, you may proceed with learning about [How to Run the Stack](./Virtual_MATLAB_How_to_Run_the_Stack.md)
+Once everything has been setup correctly according to the script, you may proceed with learning about [How to Run the Stack](./Virtual_MATLAB_How_to_Run_the_Stack.md).
