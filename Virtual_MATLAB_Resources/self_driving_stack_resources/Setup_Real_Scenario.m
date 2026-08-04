@@ -1,10 +1,3 @@
-%% Configurable Params
-
-% Choose spawn location of QCar
-% 1 => calibration location
-% 2 => taxi hub area
-spawn_location = 2;
-
 %% Traffic Light Function
 
 % Cleanup Function
@@ -95,20 +88,6 @@ if onPath == 0
     savepath
 end
 
-% Stop RT models
-try
-    qc_stop_model('tcpip://localhost:17000', 'QCar2_Workspace')
-catch error
-end
-pause(1)
-
-try
-    qc_stop_model('tcpip://localhost:17000', 'QCar2_Workspace_studio')
-    pause(1)
-catch error
-end
-pause(1)
-
 % QLab connection
 qlabs = QuanserInteractiveLabs();
 connection_established = qlabs.open('localhost');
@@ -119,8 +98,6 @@ if connection_established == false
 end
 
 disp('Connected')
-verbose = true;
-num_destroyed = qlabs.destroy_all_spawned_actors();
 
 % Flooring
 
@@ -286,32 +263,6 @@ camera2Loc = [-0.36+ x_offset, -3.691+ y_offset, 2.652];
 camera2Rot = [0, 47, 90];
 camera2=QLabsFreeCamera(qlabs);
 camera2.spawn_degrees (camera2Loc, camera2Rot);
-
-%% Spawn QCar 2 and start rt model
-
-% Use user configured parameters
-
-calibration_location_rotation = [0, 2.13, 0.005, 0, 0, -90];
-taxi_hub_location_rotation = [-1.205, -0.83, 0.005, 0, 0, -44.7];
-
-%QCar
-myCar = QLabsQCar2(qlabs);
-
-switch spawn_location
-    case 1
-        spawn = calibration_location_rotation;
-    case 2
-        spawn = taxi_hub_location_rotation;
-end
-
-
-myCar.spawn_id_degrees(0, spawn(1:3), spawn(4:6), [1/10, 1/10, 1/10], 1);
-
-% Start RT models
-file_workspace = fullfile(getenv('RTMODELS_DIR'), 'QCar2', 'QCar2_Workspace_studio.rt-win64');
-pause(2)
-system(['quarc_run -D -r -t tcpip://localhost:17000 ', file_workspace]);
-pause(3)
 
 % Run traffic controller
 trafficLightController(qlabs)
