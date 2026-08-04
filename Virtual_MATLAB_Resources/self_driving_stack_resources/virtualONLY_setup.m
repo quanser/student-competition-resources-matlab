@@ -5,6 +5,7 @@
 %   - No QUARC is installed
 %   - QLabs not added on
 %   - No Githubs have been cloned (Academic or Student Comp)
+
 %% Pre-checks for Windows
 
 % Is this a Windows Machine
@@ -145,13 +146,12 @@ if isfolder(competition_dir)
 end
 %% Clone Competition Repo
 
-% CHANGE BRANCH TO VIRTUAL ONLY ONCE COMPLETED
 competitionRepoURL = 'https://github.com/quanser/student-competition-resources-matlab.git';
 if ~competition_dir_exists_flag && git_installed_flag
     % competition repo with system git
     disp('Attempting to clone the Student Competition Repository ....')
     disp('This could take a few minutes ....')
-    command = ['git clone ', competitionRepoURL, ' ', competition_dir];
+    command = ['git clone -b virtualONLY ', competitionRepoURL, ' ', competition_dir];
     [status, cmdout] = system(command, '-echo');
     if status == 0
         fprintf('successfully cloned the competition repo ....\n')
@@ -189,45 +189,6 @@ if quanser_dir_exists_flag || competition_dir_exists_flag
                 'It is your responsibility to investigate why that folder already exists!\n'])
     fprintf(['\nThese repos can be found here:\n', academicRepoURL, '\n', competitionRepoURL, '\n'])
 end
-
-% % NOT SURE IF WE EVEN NEED TO RUN THE BAT FILES FOR THINGS TO WORK
-% 
-% % open configure matlab in windows file explorer
-% setup_dir = fullfile(quanser_dir, '1_setup');
-% % check the dir exists
-% if ~isfolder(setup_dir)
-%     errorMsg('Something went wrong in the cloning of the Academic Resources')
-% end
-% % find check Req file
-% checkReqFile = fullfile(setup_dir, 'step_1_check_requirements.bat');
-% % find setup MATLAB file
-% findMatFile = fullfile(setup_dir, 'configure_matlab.bat');
-% 
-% % ensure these files exist
-% if ~isfile(checkReqFile) || ~isfile(findMatFile)
-%     errorMsg('Cannot find the setup files in 1_Setup!')
-% end
-
-% 
-% % run Check Req file
-% [status, cmdout] = system(checkReqFile);
-% % check if the command executed
-% if status == 0
-%     print('Check Requirements was Run!')
-% else
-%     disp(cmdout)
-%     errorMsg('Check Requirement failed ...')
-% end
-% 
-% % run Check Req file
-% [status, cmdout] = system(checkReqFile);
-% % check if the command executed
-% if status == 0
-%     print('Check Requirements was Run!')
-% else
-%     disp(cmdout)
-%     errorMsg('Check Requirement failed ...')
-% end
 
 %% Final Comments if Completed
 
