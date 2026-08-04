@@ -1,6 +1,6 @@
 # Virtual MATLAB Software Setup 🪧 <!-- omit in toc -->
 
-Please go through the following steps to set up a computer with the Quanser Interactive Labs add-on to participate in Virtual ONLY competitions. 
+Please go through the following steps to set up a computer with the Quanser Interactive Labs add-on to participate in Virtual ONLY competitions.
 
 ## Description <!-- omit in toc -->
 
@@ -12,7 +12,7 @@ This document will cover the following:
 
 ## System Requirements
 
-`Installation Time:` It will take around **30** to install everything
+`Installation Time:` It will take around **30** to install everything depending on internet connection
 
 `Storage:`: Installing everything will consume around **3GB of storage**
 
@@ -42,8 +42,14 @@ This document will cover the following:
 
 Follow the below steps to perform the automated setup:
 
-1. Download the automated setup script from [here]():
-2. Open
+1. Download the automated setup script [virtualONLY_setup.m](./self_driving_stack_resources/virtualONLY_setup.m):
+
+![Virtual Only Setup Script Download](../Pictures/virtualOnlySetupScriptDownload.png)
+
+2. Open the script in MATLAB
+3. Run the script
+
+Once you see `Everything should now be set up for running the Student Competition Resources!` the script has completed. Please monitor the output to the Command Window in MATLAB as this will tell you if there were any issues along the way.
 
 ## Next Step
 
