@@ -1,4 +1,4 @@
-# Welcome to the Quanser MATLAB Competition Resources <!-- omit in toc -->
+# Welcome to the Quanser VIRTUAL ONLY MATLAB Competition Resources <!-- omit in toc -->
 
 This branch of the repo contains all the resources intended for users who are only using a Virtual Setup (no physical QCar2).
 
