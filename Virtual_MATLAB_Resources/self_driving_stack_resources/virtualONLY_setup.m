@@ -43,10 +43,11 @@ else
 end
 
 % recheck git was installed
-[status, ~] = system('git --version');
+[status, cmdout] = system('git --version');
 if status == 0
     git_installed_flag = true;
 else
+    disp(cmdout)
     error('git is still not being detected after attempted installation ....')
 end
 
@@ -198,9 +199,16 @@ fprintf('\nEverything should now be set up for running the Student Competition R
 technicalResourcesURL = 'https://github.com/quanser/student-competition-resources-matlab/blob/virtualONLY/Virtual_MATLAB_Resources/Virtual_MATLAB_How_to_Run_the_Stack.md';
 web(technicalResourcesURL)
 
+% Ensure they are directed to register for QLabs
+qlabsRegisterURL = 'https://portal.quanser.com/Accounts/Register';
+web(qlabsRegisterURL);
+prompt = ['At this point, you will need to register for QLabs to gain access to the QCar2 module! ' ...
+    'I have opened the registration page in your browser. Please go fill in the form and wait to be added. ' ...
+    'This could take 1-2 days until you have access.'];
+questdlg(prompt, 'Change directory?', 'yes', 'yes', 'yes');
+
 % change directory to competition directory
 prompt = 'Would you like me to change your directory to the competition resources?';
-choices = {'yes', 'no'};
 answer = questdlg(prompt, 'Change directory?', 'yes', 'no', 'yes');
 switch answer
     case 'yes'
