@@ -12,7 +12,7 @@
 if ispc
     fprintf('Windows Detected, nice ....\n')
 else
-    errorMsg('This machine is not being detected as a windows machine!')
+    error('This machine is not being detected as a windows machine!')
 end
 
 % Is git installed?
@@ -35,9 +35,9 @@ else
     end
     % check the result of installing
     if status == 0
-        print('Successfully installed git!\n')
+        fprintf('Successfully installed git!\n')
     else
-        print(cmdout)
+        disp(cmdout)
         error('Could not install git ....')
     end
 end
@@ -193,6 +193,16 @@ end
 
 %% Final Comments if Completed
 
+% final message and opening of resources
 fprintf('\nEverything should now be set up for running the Student Competition Resources!\n')
 technicalResourcesURL = 'https://github.com/quanser/student-competition-resources-matlab/blob/virtualONLY/Virtual_MATLAB_Resources/Virtual_MATLAB_How_to_Run_the_Stack.md';
 web(technicalResourcesURL)
+
+% change directory to competition directory
+prompt = 'Would you like me to change your directory to the competition resources?';
+choices = {'yes', 'no'};
+answer = questdlg(prompt, 'Change directory?', 'yes', 'no', 'yes');
+switch answer
+    case 'yes'
+        cd(competition_dir);
+end
