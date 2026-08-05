@@ -1,43 +1,14 @@
 # Manual Setup of Virtual MATLAB Software 🪧 <!-- omit in toc -->
 
-Please go through the following steps to set up a computer with the Quanser Interactive Labs add-ons without using the [Software Setup Script Doc](./Virtual_MATLAB_Software_Setup.md).
+Please go through the following steps to set up a computer with the Quanser Interactive Labs add-ons without using the [Software Setup Script](./Virtual_MATLAB_Software_Setup.md).
 
 ## Description <!-- omit in toc -->
 
 This document will cover the following:
 
-- [System Requirements](#system-requirements)
 - [Setting up Quanser Interactive Labs (QLabs) with MATLAB](#setting-up-quanser-interactive-labs-qlabs-with-matlab)
 - [Setting Up the MATLAB Competition Resources](#setting-up-the-matlab-competition-resources)
 - [Next Step](#next-step)
-
-## System Requirements
-
-`Installation Time:` It will take around **30** to install everything pending internet connection
-
-`Storage:`: Installing everything will consume around **3GB of storage**
-
-`OS:` Windows 10 or 11
-
-`MATLAB Version:` 2024a or higher
-
-`MATLAB Toolboxes:` Control Systems Toolbox
-
-`C++ Compiler:` Not Required
-
-`Minimum Hardware:`
-
-- Graphics Card: Intel UHD or Intel Iris Xe integrated GPU, or equivalent
-- Processor: Intel Core Ultra 5, Intel Core i5, AMD Ryzen 5, or equivalent
-- Memory: 8 GB RAM
-
-`Recommended Hardware:`
-
-- Graphics Card: 4050m or equivalent
-- Processor: i5-13500HX or equivalent
-- Memory: 16 GB RAM
-
-**Note**: Recommended hardware is based on the hardware used to develop and run self-driving stack in Simulink.
 
 ## Setting up Quanser Interactive Labs (QLabs) with MATLAB
 
@@ -92,4 +63,4 @@ These resources will contain all the Quanser Resources for all of Quanser's prod
 
 ## Next Step
 
-Once everything has been setup correctly according to the script, you may proceed with learning about [How to Run the Stack](./Virtual_MATLAB_How_to_Run_the_Stack.md).
+Once everything has been setup correctly, you may proceed with learning about [How to Run the Stack](./Virtual_MATLAB_How_to_Run_the_Stack.md).

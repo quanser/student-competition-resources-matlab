@@ -1,6 +1,11 @@
-# Welcome to the Quanser MATLAB Competition Resources
+# Welcome to the Quanser MATLAB Competition Resources <!-- omit in toc -->
 
 This branch of the repo contains all the resources intended for users who are only using a Virtual Setup (no physical QCar2).
+
+- [🗄️ Resource List 🗄️](#️-resource-list-️)
+- [💻 System Requirements 💻](#-system-requirements-)
+- [❓ FAQ ❓](#-faq-)
+- [Auxillary Materials](#auxillary-materials)
 
 ## 🗄️ Resource List 🗄️
 
@@ -13,9 +18,33 @@ This branch of the repo contains all the resources intended for users who are on
 [Virtual MATLAB Development Guide](./Virtual_MATLAB_Resources/Virtual_MATLAB_Development_Guide.md): Contains important details about how the self-driving stack resources are meant to be used.
  the virtual QCar to one for a physical QCar.
 
-## 💻 Software Requirements 💻
+## 💻 System Requirements 💻
 
-**Software requirements depend on the competition you are participating in**, so please refer to the posted software requirements on the correct [competition webpage](https://quanser.github.io/student-competitions/).
+`Installation Time:` It will take around **30** to install everything depending on internet connection
+
+`Storage:`: Installing everything will consume around **3GB of storage**
+
+`OS:` Windows 10 or 11
+
+`MATLAB Version:` 2024a or higher
+
+`MATLAB Toolboxes:` Control Systems Toolbox
+
+`C++ Compiler:` Not Required
+
+`Minimum Hardware:`
+
+- Graphics Card: Intel UHD or Intel Iris Xe integrated GPU, or equivalent
+- Processor: Intel Core Ultra 5, Intel Core i5, AMD Ryzen 5, or equivalent
+- Memory: 8 GB RAM
+
+`Recommended Hardware:`
+
+- Graphics Card: 4050m or equivalent
+- Processor: i5-13500HX or equivalent
+- Memory: 16 GB RAM
+
+**Note**: Recommended hardware is based on the hardware used to develop and run self-driving stack in Simulink.
 
 ## ❓ FAQ ❓
 

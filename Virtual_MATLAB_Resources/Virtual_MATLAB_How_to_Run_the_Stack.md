@@ -23,7 +23,7 @@ Follow the below instructions to make sure everything is set up correctly and le
 
 3. Run the `Virtual_Setup_Competition_Map.m` script and select the option `n` when prompted to `Setup real scenario?`
 
-4. Use `run` button to run the model
+4. Use `run` button to run the simulink model once it opens
 
    ![competition map](../Pictures/simulink_run_button.png)
 
@@ -37,9 +37,9 @@ If something is not working correctly, please double-check that you have gone th
 
 In the `Setup_QCar2_Params.m` script, you will be prompted to setup the real scenario if it is desired.
 
-A more realistic traffic scenario is provided through the [`Setup_Real_Scenario.m`](../Virtual_MATLAB_Resources/self_driving_stack_resources/Setup_Real_Scenario.m) file. This script spawns signage and traffic lights.
+A more realistic traffic scenario is provided through the `Setup_Real_Scenario.m` file. This script spawns signage and traffic lights.
 
-This script runs CONTINUOUSLY in a loop to control the traffic lights. If this scenario is desired selecting `y` in the `Setup_QCar2_Params.m` script will open a MATLAB Command Window to run the script in a separate instance of MATLAB.
+This script runs CONTINUOUSLY in a loop to control the traffic lights. If this scenario is desired, selecting `y` in the `Setup_QCar2_Params.m` script will open a MATLAB Command Window to run the script in a separate instance of MATLAB.
 
 ## Learning the Self-Driving Stack
 
