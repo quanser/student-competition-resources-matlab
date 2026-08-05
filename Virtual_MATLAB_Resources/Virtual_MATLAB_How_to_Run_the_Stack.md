@@ -21,7 +21,7 @@ Follow the below instructions to make sure everything is set up correctly and le
 
     ![qlabs plane](../Pictures/plane_world_qlabs.png)
 
-3. Run the `Virtual_Setup_Competition_Map.m` script and select the option `n` when prompted to `Setup real scenario?`
+3. Run the `Virtual_Setup_Competition_Map.m` script and when prompted to `Setup real scenario?`, type `n`
 
 4. Use `run` button to run the simulink model once it opens
 
@@ -31,15 +31,17 @@ You should see the QCar begin to complete a lap of the outside-most lane as show
 
 ![1 lap self drivning stack](../Pictures/1_lap_self_driving_stack.gif)
 
+>At this point you may stop the model and can begin your own development.
+
 If something is not working correctly, please double-check that you have gone through the steps correctly. If the issue persists, you may raise an issue in the [Issues tab](https://github.com/quanser/student-competition-resources-matlab/issues)
 
 ## MATLAB Setup Real Scenario
 
-In the `Setup_QCar2_Params.m` script, you will be prompted to setup the real scenario if it is desired.
+In the `Virtual_Setup_Competition_Map.m` script, you will be prompted to setup the real scenario if it is desired.
 
 A more realistic traffic scenario is provided through the `Setup_Real_Scenario.m` file. This script spawns signage and traffic lights.
 
-This script runs CONTINUOUSLY in a loop to control the traffic lights. If this scenario is desired, selecting `y` in the `Setup_QCar2_Params.m` script will open a MATLAB Command Window to run the script in a separate instance of MATLAB.
+This script runs CONTINUOUSLY in a loop to control the traffic lights. If this scenario is desired, selecting `y` in the `Virtual_Setup_Competition_Map.m` script will open a MATLAB Command Window to run the script in a separate instance of MATLAB.
 
 ## Learning the Self-Driving Stack
 
