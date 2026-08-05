@@ -2,23 +2,12 @@
 
 This branch of the repo contains all the resources intended for users who are only using a Virtual Setup (no physical QCar2).
 
-- [🗄️ Resource List 🗄️](#️-resource-list-️)
 - [💻 System Requirements 💻](#-system-requirements-)
+- [🏁 Getting Started 🏁](#-getting-started-)
 - [❓ FAQ ❓](#-faq-)
 - [Auxillary Materials](#auxillary-materials)
 
-## 🗄️ Resource List 🗄️
-
-[Virtual MATLAB Software Setup Guide](./Virtual_MATLAB_Resources/Virtual_MATLAB_Software_Setup.md): Contains the instructions and requirements to set up your computer to utilize the Quanser Resources. **START HERE IF LOST**.
-
-[Virtual MATLAB Manual Software Setup Guide](./Virtual_MATLAB_Resources/Virtual_MATLAB_Manual_Software_Setup.md): Contains manual setup instructions if the automated script does not work.
-
-[How to run the Self Driving Stack](./Virtual_MATLAB_Resources/Virtual_MATLAB_How_to_Run_the_Stack.md): Contains the instructions on how to use the self driving stack.
-
-[Virtual MATLAB Development Guide](./Virtual_MATLAB_Resources/Virtual_MATLAB_Development_Guide.md): Contains important details about how the self-driving stack resources are meant to be used.
- the virtual QCar to one for a physical QCar.
-
-## 💻 System Requirements 💻
+##  💻 System Requirements 💻
 
 `Installation Time:` It will take around **30** to install everything depending on internet connection
 
@@ -46,6 +35,21 @@ This branch of the repo contains all the resources intended for users who are on
 
 **Note**: Recommended hardware is based on the hardware used to develop and run self-driving stack in Simulink.
 
+## 🏁 Getting Started 🏁
+
+Go through the following documents to get fully set up and familiar with the resources:
+
+1. [Virtual MATLAB Software Setup Guide](./Virtual_MATLAB_Resources/Virtual_MATLAB_Software_Setup.md): Contains the instructions and requirements to set up your computer to utilize the Quanser Resources.
+
+2. [Virtual MATLAB Manual Software Setup Guide](./Virtual_MATLAB_Resources/Virtual_MATLAB_Manual_Software_Setup.md): Contains manual setup instructions if the automated script does not work.
+
+3. [How to run the Self Driving Stack](./Virtual_MATLAB_Resources/Virtual_MATLAB_How_to_Run_the_Stack.md): Contains the instructions on how to use the self driving stack.
+
+4. [Virtual MATLAB Development Guide](./Virtual_MATLAB_Resources/Virtual_MATLAB_Development_Guide.md): Contains important details about how the self-driving stack resources are meant to be used.
+ the virtual QCar to one for a physical QCar.
+
+Once all the documents have been completed, the computer should be setup to develop a self-driving stack in Simulink. An objective like the [detailed scenario](https://quanser.github.io/student-competitions/events/common/Rules_and_Objectives/Virtual_Detailed_Scenario.html) can be completed to test your self-driving algorithms. 
+
 ## ❓ FAQ ❓
 
 Some common issues are listed on this Github's FAQ Page: [MATLAB FAQ](./Virtual_MATLAB_Resources/MATLAB_FAQ.md)
@@ -56,9 +60,9 @@ For any high-level discussion you would like to have with other teams, please po
 
 ## Auxillary Materials
 
-- [Student Competition Webpages](https://quanser.github.io/student-competitions/)
-- [Quanser Website](https://www.quanser.com/)
-- [Quanser Academic Resources Github](https://github.com/quanser/Quanser_Academic_Resources)
-- [Quanser Interactive Labs Support Page](https://portal.quanser.com/Support)
-- [Quanser Interactive Labs Documentation](https://qlabs.quanserdocs.com/en/latest/ )
-- [Quanser QUARC Blocks for MALTAB/Simulink Documentation](https://docs.quanser.com/quarc/documentation/quarc_block_categories.html)
+- [Student Competition Webpages](https://quanser.github.io/student-competitions/): Contains a list of the active student competition webpages
+- [Quanser Website](https://www.quanser.com/): Quanser Consulting Inc.'s coompany webpage
+- [Quanser Academic Resources Github](https://github.com/quanser/Quanser_Academic_Resources): Quanser's public teaching resources for all products including the QCar2
+- [Quanser Interactive Labs Support Page](https://portal.quanser.com/Support): A support page for QLabs if any issues are encountered during this time
+- [Quanser Interactive Labs Documentation](https://qlabs.quanserdocs.com/en/latest/): Documentation on how to spawn objects within QLabs
+- [Quanser QUARC Blocks for MALTAB/Simulink Documentation](https://docs.quanser.com/quarc/documentation/quarc_block_categories.html): Contains descriptions of Quanser's QUARC blocks that have useful functions for self driving
