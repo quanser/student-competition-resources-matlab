@@ -1,6 +1,19 @@
-# Welcome to the Quanser MATLAB Competition Resources
+# Welcome to the Quanser MATLAB Competition Resources <!-- omit in toc -->
 
-This repo contains all the resources available for the Quanser MATLAB-based competitions!
+This repo contains all the resources available for the Quanser MATLAB-based competitions! There are different branches depending on the configuration needed, so make sure you use the right one!
+
+Current Branch List:
+``` bash
+L main
+L virtualONLY
+```
+
+Table of Contents:
+
+- [🗄️ Resource List 🗄️](#️-resource-list-️)
+- [💻 Software Requirements 💻](#-software-requirements-)
+- [❓ FAQ ❓](#-faq-)
+- [Auxillary Materials](#auxillary-materials)
 
 ## 🗄️ Resource List 🗄️
 
