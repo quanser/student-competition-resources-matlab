@@ -20,7 +20,7 @@ Follow the below steps to perform the automated setup:
 2. Open the script in MATLAB
 3. Run the script
 
-Once you see `Everything should now be set up for running the Student Competition Resources!` in the MATLAB Command Window, the script has completed. Please monitor the output of the Command Window in MATLAB as this will tell you if there were any issues along the way.
+Once you see `Everything should now be set up for running the Student Competition Resources!` in the MATLAB Command Window, the script has completed. Please monitor the output of the Command Window in MATLAB as this will tell you if there were any issues along the way. If a the output tells you something was not performed, you can manually perform it by following the [Manual Setup Guide](./Virtual_MATLAB_Manual_Software_Setup.md).
 
 ## Next Step
 
