@@ -5,7 +5,7 @@ This branch of the repo contains all the resources intended for users who are on
 - [💻 System Requirements 💻](#-system-requirements-)
 - [🏁 Getting Started 🏁](#-getting-started-)
 - [❓ FAQ ❓](#-faq-)
-- [Auxillary Materials](#auxillary-materials)
+- [Auxiliary Materials](#auxiliary-materials)
 
 ##  💻 System Requirements 💻
 
@@ -58,10 +58,10 @@ For any bugs in the released resources, please post an issue in the [Github Issu
 
 For any high-level discussion you would like to have with other teams, please post them in the [Github Discussions](https://github.com/quanser/student-competition-resources-matlab/discussions).
 
-## Auxillary Materials
+## Auxiliary Materials
 
 - [Student Competition Webpages](https://quanser.github.io/student-competitions/): Contains a list of the active student competition webpages
-- [Quanser Website](https://www.quanser.com/): Quanser Consulting Inc.'s coompany webpage
+- [Quanser Website](https://www.quanser.com/): Quanser Consulting Inc.'s company webpage
 - [Quanser Academic Resources Github](https://github.com/quanser/Quanser_Academic_Resources): Quanser's public teaching resources for all products including the QCar2
 - [Quanser Interactive Labs Support Page](https://portal.quanser.com/Support): A support page for QLabs if any issues are encountered during this time
 - [Quanser Interactive Labs Documentation](https://qlabs.quanserdocs.com/en/latest/): Documentation on how to spawn objects within QLabs
