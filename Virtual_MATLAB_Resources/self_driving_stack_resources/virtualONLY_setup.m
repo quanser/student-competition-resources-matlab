@@ -184,6 +184,7 @@ else
 end
 
 % Notification if any cloned repos were not installed
+competitionRepoURL = 'https://github.com/quanser/student-competition-resources-matlab/tree/virtualONLY';
 if quanser_dir_exists_flag || competition_dir_exists_flag
     fprintf(['\nOne or more of the repositories intended to be cloned may already exist.\n' ...
                 'It is your responsibility to investigate why that folder already exists!\n'])
@@ -193,5 +194,5 @@ end
 %% Final Comments if Completed
 
 fprintf('\nEverything should now be set up for running the Student Competition Resources!\n')
-technicalResourcesURL = 'https://github.com/quanser/student-competition-resources-matlab/blob/main/Virtual_MATLAB_Resources/Virtual_MATLAB_Software_Setup.md';
+technicalResourcesURL = 'https://github.com/quanser/student-competition-resources-matlab/blob/virtualONLY/Virtual_MATLAB_Resources/Virtual_MATLAB_How_to_Run_the_Stack.md';
 web(technicalResourcesURL)
