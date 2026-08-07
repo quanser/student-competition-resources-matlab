@@ -2,10 +2,15 @@
 
 This branch of the repo contains all the resources intended for users who are only using a Virtual Setup (no physical QCar2).
 
+- [Bugs](#bugs)
 - [💻 System Requirements 💻](#-system-requirements-)
 - [🏁 Getting Started 🏁](#-getting-started-)
 - [❓ FAQ ❓](#-faq-)
 - [Auxiliary Materials](#auxiliary-materials)
+
+## Bugs
+
+Currently, the LED strip block is not available in the Quanser Interactive Labs installation that comes with the MATLAB Add-Ons. Contact studentcompetition@Quanser.com if you need a quick fix.
 
 ##  💻 System Requirements 💻
 
