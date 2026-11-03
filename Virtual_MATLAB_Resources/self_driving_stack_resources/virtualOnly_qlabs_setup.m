@@ -23,16 +23,20 @@ else
 end
 
 % check that MATLAB has access to qvl libraries
-qvlDir = fullfile(getenv('QAL_DIR'), '0_libraries', 'matlab', 'qvl');
-if ~isfolder(qvlDir)
-    disp('qvl libraries are not set, but are necessary for running the setup scripts')
-    error('please download the libraries from the https://github.com/quanser/Quanser_Academic_Resources#downloading-resources');
+qalDir = fullfile(getenv('USERPROFILE'), 'Documents', 'Quanser');
+if ~isfolder(qalDir)
+    disp('This script expects to find qvl libraries here:')
+    disp(qalDir)
+    error('Please follow ALL steps for setting up the Quanser Academic Resources https://github.com/quanser/Quanser_Academic_Resources#downloading-resources');
+else
+    setenv('QAL_DIR', qalDir);
 end
 
 %% Warning to Open the Correct World in QLabs
 
-fprintf('\nBefore proceeding, please ensure that QLabs is open to the QCar2 module and the Open Plane World!\n')
-input('Once ready, press enter to proceed ...\n')
+prompt = ['Before proceeding, please ensure that QLabs is open to the QCar2 module and the' ...
+    ' Open Plane World! Note: Use QLabs.launch to open QLabs'];
+questdlg(prompt, 'QLabs Preparation', 'Done!', 'Done!');
 
 %% User Interaction
 

@@ -69,6 +69,10 @@ function issueFlag = Setup_QCar2_Params_Addons(qcar_types, map_type)
     
     % plot all paths
     plot (path_x4 - cal_pos(1), path_y4 - cal_pos(2));
+    title('QCar Path 4')
+    xlabel('Map X Direction (m)')
+    ylabel('Map Y Direction (m)')
+    legend('Path 4')
     hold off;
 
     % assign path variables
