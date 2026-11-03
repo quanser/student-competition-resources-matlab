@@ -19,11 +19,11 @@ Follow the below instructions to make sure everything is set up correctly and le
 1. Using MATLAB navigate to the `Documents/student-competition-resources-matlab/Virtual_MATLAB_Resources/self_driving_stack_resources` (make sure you double-click on folders and don't expand them)
 
 2. Open Quanser Interactive Labs (QLabs) and navigate to `Self-Driving Car Studio` => `QCar2 Module` => `Plane`
-   - QLabs can be opened using `QLabs.launch` in the MATLAB Command Window
+   - QLabs can be opened using `QLabs.launch` in the MATLAB Command Window or by searching for `Quanser Interactive Labs` in Windows
 
     ![qlabs plane](../Pictures/plane_world_qlabs.png)
 
-3. Run the `Virtual_Setup_Competition_Map.m` script and when prompted to `Setup real scenario?`, type `n`
+3. Run the `virtualONLY_qlabs_setup.m` script and when prompted to `Setup real scenario?`, type `n`
 
 4. Use `run` button to run the simulink model once it opens
 

@@ -233,7 +233,15 @@ try
     if isfolder(quanser_dir)
         setenv('QAL_DIR', quanser_dir);
     else
-        error('Cannot find 0_libraries in the Quanser Academic Resources after clone. Check folder paths!')
+        error('Cannot find Quanser folder in the Quanser Academic Resources after clone. Check folder paths!')
+    end
+
+    % Create the RTMODELS_DIR
+    rtmodels_dir = fullfile(quanser_dir, '0_libraries', 'resources', 'rt_models');
+    if isfolder(rtmodels_dir)
+        setenv('RTMODELS_DIR', rtmodels_dir);
+    else
+        error('Cannot find RTMODEL_DIR within the Quanser Academic Resources. Please check that the Quanser Academic Resources installed correctly.')
     end
     
     % Notification if any cloned repos were not installed
