@@ -230,9 +230,8 @@ try
 
     % Create the QAL_DIR Environment Variable and check for the 0_libraries
     % folder
-    qal_dir = fullfile(quanser_dir, '0_libraries');
-    if isfolder(qal_dir)
-        setenv('QAL_DIR', qal_dir);
+    if isfolder(quanser_dir)
+        setenv('QAL_DIR', quanser_dir);
     else
         error('Cannot find 0_libraries in the Quanser Academic Resources after clone. Check folder paths!')
     end
@@ -262,7 +261,7 @@ try
     % Ensure they are directed to register for QLabs
     qlabsRegisterURL = 'https://portal.quanser.com/Accounts/Register';
     web(qlabsRegisterURL);
-    prompt = ['At this point, you will need to register for QLabs to gain access to the QCar2 module! ' ...
+    prompt = ['At this point, you will need to register for QLabs to gain access to the QCar2 module IF you have not done so in the past! ' ...
         'The registration page should be opened in your browser. Please go fill in the form and wait to be added. ' ...
         'This could take 1-2 days until you have access. If you do not receive access in that time period, please email the student competition coordinator.'];
     helpdlg(prompt, 'QLabs Registration?');
