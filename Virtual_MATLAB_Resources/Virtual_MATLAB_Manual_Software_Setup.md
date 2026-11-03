@@ -2,7 +2,7 @@
 
 Please go through the following steps to set up a computer with the Quanser Interactive Labs add-ons without using the [Software Setup Script](./Virtual_MATLAB_Software_Setup.md).
 
-## Description <!-- omit in toc -->
+## Topics <!-- omit in toc -->
 
 This document will cover the following:
 
@@ -16,7 +16,7 @@ Follow the below steps to set up QLabs with MATLAB for Virtual ONLY:
 
 >WARNING: Ensure you do not already have QUARC or Quanser Interactive Labs installed on this PC (uninstall them if you do).
 
-1. Register for QLabs on the [Quanser Academic Portal](https://portal.quanser.com/Accounts/Register)
+1. Register for QLabs on the [Quanser Academic Portal](https://portal.quanser.com/Accounts/Register) if you have not already done so in the past
 
 2. Do the following sequence:
     * Open MATLAB

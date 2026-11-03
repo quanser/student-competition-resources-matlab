@@ -2,7 +2,7 @@
 
 Everything pertaining to running the `/self_driving_stack_resources` is found here.
 
-## Description <!-- omit in toc -->
+## Topics <!-- omit in toc -->
 
 Please use the following guide to run the Self Driving Stack after completing the [Virtual Software Setup Guide](./Virtual_MATLAB_Software_Setup.md) or the
 [Manual Software Setup Guide](./Virtual_MATLAB_Manual_Software_Setup.md):

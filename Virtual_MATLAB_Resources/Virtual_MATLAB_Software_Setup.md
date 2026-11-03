@@ -2,7 +2,7 @@
 
 Please go through the following steps to set up a computer with the Quanser Interactive Labs add-on to participate in Virtual ONLY competitions. If these instructions do not work, there are [Manual Setup Instructions](./Virtual_MATLAB_Manual_Software_Setup.md).
 
-## Description <!-- omit in toc -->
+## Topics <!-- omit in toc -->
 
 This document will cover the following:
 
