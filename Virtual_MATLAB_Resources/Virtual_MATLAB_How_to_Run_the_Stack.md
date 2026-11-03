@@ -16,7 +16,7 @@ Please use the following guide to run the Self Driving Stack after completing th
 
 Follow the below instructions to make sure everything is set up correctly and learn how to use the provided resources:
 
-1. Using MATLAB navigate to the `Documents/student-competition-resources-matlab/Virtual_MATLAB_Resources/self_driving_stack_resources` (make sure you double -click on folders and don't expand them)
+1. Using MATLAB navigate to the `Documents/student-competition-resources-matlab/Virtual_MATLAB_Resources/self_driving_stack_resources` (make sure you double-click on folders and don't expand them)
 
 2. Open Quanser Interactive Labs (QLabs) and navigate to `Self-Driving Car Studio` => `QCar2 Module` => `Plane`
    - QLabs can be opened using `QLabs.launch` in the MATLAB Command Window
@@ -42,6 +42,8 @@ In the `Virtual_Setup_Competition_Map.m` script, you will be prompted to setup t
 A more realistic traffic scenario is provided through the `Setup_Real_Scenario.m` file. This script spawns signage and traffic lights.
 
 This script runs CONTINUOUSLY in a loop to control the traffic lights. If this scenario is desired, selecting `y` in the `Virtual_Setup_Competition_Map.m` script when prompted will open a MATLAB Command Window to run the Real Scenario in a separate instance of MATLAB.
+
+When you would like to END the scenario, type `ctrl + C` in the MATLAB Command Window running the loop and it will kill the script.
 
 ## Next Steps
 

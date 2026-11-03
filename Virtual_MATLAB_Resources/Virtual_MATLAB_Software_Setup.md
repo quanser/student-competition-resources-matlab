@@ -13,7 +13,7 @@ This document will cover the following:
 
 Follow the below steps to perform the automated setup:
 
-1. Download the automated setup script [virtualONLY_setup.m](./self_driving_stack_resources/virtualONLY_setup.m):
+1. Download the automated setup script [virtualONLY_computer_setup.m](./self_driving_stack_resources/virtualONLY_computer_setup.m):
 
 ![Virtual Only Setup Script Download](../Pictures/virtualOnlySetupScriptDownload.png)
 
