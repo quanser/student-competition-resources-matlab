@@ -17,14 +17,21 @@ end
 
 %% Progress Bar Setup
 
-% Close any progress bar left behind by a previous run that errored out
-close(findall(0, 'Type', 'figure', 'Tag', 'QuanserSetupWaitbar'));
+% Close any progress window left behind by a previous run that errored out
+delete(findall(0, 'Type', 'figure', 'Tag', 'QuanserSetupProgress'));
 
-% The progress bar advances as each stage of the script finishes
+% The progress dialog advances as each stage of the script finishes.
+% uiprogressdlg needs a uifigure as its parent, so a small window is created
+% to hold the dialog. The dialog blocks that window until it is closed.
 totalSteps = 7;
-progressBar = waitbar(0, 'Starting setup ....', 'Name', 'Quanser Competition Setup');
-set(progressBar, 'Tag', 'QuanserSetupWaitbar');
-updateProgress = @(stepNumber, message) waitbar(stepNumber/totalSteps, progressBar, message);
+progressFig = uifigure('Name', 'Quanser Competition Setup', ...
+    'Position', [300 300 560 220], 'Tag', 'QuanserSetupProgress');
+uilabel(progressFig, 'Text', 'Please keep this window open until the setup is complete.', ...
+    'Position', [20 180 520 22]);
+progressDlg = uiprogressdlg(progressFig, 'Title', 'Quanser Competition Setup', ...
+    'Message', 'Starting setup ....', 'Value', 0);
+
+updateProgress = @(stepNumber, message) setProgress(progressDlg, stepNumber/totalSteps, message);
 updateProgress(1, 'Windows detected. Checking for git ....');
 try
     % Is git installed?
@@ -62,7 +69,7 @@ try
         disp(cmdout)
         error('git is still not being detected after attempted installation ....')
     end
-    updateProgress(2, 'git is ready. Setting up the QLabs add-on ....');
+    updateProgress(2, 'Git is installed. Setting up the QLabs add-on ....');
     
     %% Setup QLabs
     
@@ -104,20 +111,12 @@ try
         fileNamePart1 = 'quanser_labs-';
         fileNamePart2 = '.mltbx';
         fileName = strcat(fileNamePart1, latestVersion, fileNamePart2);
-        % websave has no progress callback, so show an indeterminate dialog
-        downloadFig = uifigure('Name', 'Downloading');
-        downloadDlg = uiprogressdlg(downloadFig, 'Title', 'Downloading', ...
-            'Message', 'Downloading the Quanser Interactive Labs add-on ....', ...
-            'Indeterminate', 'on');
-        try
-            websave(fileName, url);
-        catch downloadError
-            close(downloadDlg);
-            close(downloadFig);
-            rethrow(downloadError)
-        end
-        close(downloadDlg);
-        close(downloadFig);
+        % websave has no progress callback, so switch the dialog to
+        % indeterminate mode while the file downloads
+        progressDlg.Message = 'Downloading the Quanser Interactive Labs add-on ....';
+        progressDlg.Indeterminate = 'on';
+        websave(fileName, url);
+        progressDlg.Indeterminate = 'off';
     
         % attempt to add matlab add on
         try
@@ -259,7 +258,8 @@ try
     % complete and close the progress bar
     updateProgress(7, 'Setup complete!');
     pause(1);
-    close(progressBar);
+    close(progressDlg);
+    delete(progressFig);
     
     % final message and opening of resources
     fprintf('\nEverything should now be set up for running the Student Competition Resources!\n')
@@ -284,5 +284,13 @@ try
 catch errorMsg
     disp(errorMsg.message)
     questdlg('Script failed on something. Please read the Command Window for details. Click OK to continue', 'Script End', 'OK', 'OK');
-    close(findall(0, 'Type', 'figure', 'Tag', 'QuanserSetupWaitbar'));
+    delete(findall(0, 'Type', 'figure', 'Tag', 'QuanserSetupProgress'));
+end
+
+%% Local Functions
+
+function setProgress(dlg, value, message)
+% Update the value and message shown on the progress dialog
+dlg.Value = value;
+dlg.Message = message;
 end
