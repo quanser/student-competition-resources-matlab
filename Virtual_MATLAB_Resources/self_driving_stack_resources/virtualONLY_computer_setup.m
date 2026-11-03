@@ -66,8 +66,7 @@ try
     
     %% Setup QLabs
     
-    % check if QLabs already exists somehow on the system
-    
+    % check if QLabs already exists somehow on the system   
     qlabs_installed_flag = false;
     qlabsDir = fullfile(getenv('ProgramFiles'), 'Quanser', 'Quanser Interactive Labs');
     if isfolder(qlabsDir)
@@ -83,16 +82,28 @@ try
     end
     
     if ~addOnExists && qlabs_installed_flag
-        error('QLabs seems to be installed but the MATLAB add on is not detected, please uninstall QLabs ....')
+        error(['QLabs seems to be installed but the MATLAB add on is not detected, please uninstall QLabs either by ' ...
+            'typing QLabs.remove in the Command Window or by uninstalling it from Add or Remove Programs in Windows. '])
     end
     
     
-    % if not added on, add it
+    % if the add on does not exist, download it and add it
     if ~addOnExists
-    
-        % download add on from online
-        url = 'https://addons.mathworks.com/registry/v1/addons/packages/10b5302e-ce6e-4dec-8fa7-e6544bf6d35f/2.25.0/-/download/mltbx';
-        fileName = 'quanser_labs-2.25.0.mltbx';
+
+        % Get the latest version number from online
+        rel = webread('https://api.github.com/repos/quanser/Mathworks_QLabs/releases/latest');
+        latestVersion = erase(string(rel.tag_name), "v");     % "2.25.0.18"
+        % remove the last segment of the versioning
+        latestVersion = extractBefore(latestVersion, find(char(latestVersion) == '.', 1, 'last'));
+
+        % construct the url
+        urlPart1 = 'https://addons.mathworks.com/registry/v1/addons/packages/10b5302e-ce6e-4dec-8fa7-e6544bf6d35f/';
+        urlPart2 = '/-/download/mltbx';
+        url = strcat(urlPart1, latestVersion, urlPart2);
+        % construct the file name
+        fileNamePart1 = 'quanser_labs-';
+        fileNamePart2 = '.mltbx';
+        fileName = strcat(fileNamePart1, latestVersion, fileNamePart2);
         % websave has no progress callback, so show an indeterminate dialog
         downloadFig = uifigure('Name', 'Downloading');
         downloadDlg = uiprogressdlg(downloadFig, 'Title', 'Downloading', ...
