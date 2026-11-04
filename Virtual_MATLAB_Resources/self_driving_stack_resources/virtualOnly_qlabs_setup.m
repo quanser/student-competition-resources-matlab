@@ -14,7 +14,7 @@ calibrationPresent = false; % never need to calibrate because we use autolocaliz
 desireToCalibrate = false;
 desireForRealScenario = false;
 
-% check that qlabs is installed and QAL_DIR is defined
+% check that qlabs is installed
 qlabsDir = fullfile(getenv('ProgramFiles'), 'Quanser', 'Quanser Interactive Labs');
 if isfolder(qlabsDir)
     disp('QLabs Installation Detected ... nice!')
@@ -22,7 +22,7 @@ else
     error('QLabs not detected! Ensure QLabs has been installed according the the competition page instructions ...')
 end
 
-% check that MATLAB has access to qvl libraries
+% check that QAL_DIR is set
 qalDir = fullfile(getenv('USERPROFILE'), 'Documents', 'Quanser');
 if ~isfolder(qalDir)
     disp('This script expects to find qvl libraries here:')
@@ -32,10 +32,31 @@ else
     setenv('QAL_DIR', qalDir);
 end
 
+% check that RTMODELS_DIR is set
+rtmodels_dir = fullfile(qalDir, '0_libraries', 'resources', 'rt_models');
+if ~isfolder(rtmodels_dir)
+    disp('This script expects to find rtmodels_dir here:')
+    disp(rtmodels_dir)
+    error('Please follow ALL steps for setting up the Quanser Academic Resources https://github.com/quanser/Quanser_Academic_Resources#downloading-resources');
+else
+    setenv('RTMODELS_DIR', rtmodels_dir);
+end
+
+% check that we have the the competition repo and it is our current active
+% directory
+comp_dir = fullfile(getenv('USERPROFILE'), 'Documents', 'student-competition-resources-matlab', 'Virtual_MATLAB_Resources', 'self_driving_stack_resources');
+if ~isfolder(comp_dir)
+    disp('This script expects to find the competition resources here:')
+    disp(comp_dir)
+    error('Please double check the steps in the Manual Software Setup Document (https://github.com/quanser/student-competition-resources-matlab/blob/virtualONLY/Virtual_MATLAB_Resources/Virtual_MATLAB_Manual_Software_Setup.md)')
+else
+    cd(comp_dir);
+end
+
 %% Warning to Open the Correct World in QLabs
 
-prompt = ['Before proceeding, please ensure that QLabs is open to the QCar2 module and the' ...
-    ' Open Plane World! Note: Use QLabs.launch to open QLabs'];
+prompt = ['Before proceeding, please ensure that QLabs is open to the QCar2 module and the ' ...
+        'Open Plane World! Note: Use QLabs.launch to open QLabs'];
 questdlg(prompt, 'QLabs Preparation', 'Done!', 'Done!');
 
 %% User Interaction
@@ -70,7 +91,7 @@ else
             desireForRealScenario = true;
         case 'n'
             desireForRealScenario = false;
-        case other
+        otherwise
             fprintf('Unrecognized input, defaulting to false')
             desireForRealScenario = false;
     end
@@ -80,15 +101,21 @@ end
 
 % if manual override, setup QLabs with manual pos
 if manual_overide_flag == true
-    setupQLabs(spawn_option, manual_location);
-    simLaunch(desireToCalibrate, externalModeFlag);
+    successFlag = setupQLabs(spawn_option, manual_location);
+    if successFlag
+        simLaunch(desireToCalibrate, externalModeFlag);
+    end
 else
-    setupQLabs(spawn_option);
-    simLaunch(desireToCalibrate, externalModeFlag); 
+    successFlag = setupQLabs(spawn_option);
+    if successFlag
+        simLaunch(desireToCalibrate, externalModeFlag);
+    end
 end
 
-% run the real scenario in a matlab terminal if requested
-if desireForRealScenario == true
+% run the real scenario in a matlab terminal if requested and all other
+% setup has run
+if desireForRealScenario == true && successFlag
+    fprintf('Setting up real scenario ...')
     filePath = fullfile(pwd, 'Setup_Real_Scenario.m');
     beginningCmd = 'matlab -nosplash -nodesktop -r "run(''';
     endCmd = char(''');" &');
@@ -102,7 +129,7 @@ if desireForRealScenario == true
 end
 
 %% Helper Functions
-function setupQLabs(spawn_option, manual_location)
+function successFlag = setupQLabs(spawn_option, manual_location)
     arguments
         spawn_option int32
         manual_location (1,3) double = [0.0,0.0,0.0]
@@ -126,6 +153,7 @@ function setupQLabs(spawn_option, manual_location)
     try
         qc_stop_model('tcpip://localhost:17000', 'QCar2_Workspace')
     catch error
+        disp('Attempted to stop RT Model QCar2_Workspace')
     end
     pause(1)
     
@@ -133,6 +161,7 @@ function setupQLabs(spawn_option, manual_location)
         qc_stop_model('tcpip://localhost:17000', 'QCar2_Workspace_studio')
         pause(1)
     catch error
+        disp('Attempted to stop RT Model QCar2_Workspace_studio')
     end
     pause(1)
     
@@ -142,6 +171,7 @@ function setupQLabs(spawn_option, manual_location)
     
     if connection_established == false
         disp("Failed to open connection.")
+        successFlag = false;
         return
     end
     disp('Connected')
@@ -216,7 +246,8 @@ function setupQLabs(spawn_option, manual_location)
     pause(3)
 
     qlabs.close();
-
+    % set the successFlag to true
+    successFlag = true;
 end
 
 function simLaunch(desireToCalibrate, externalModeFlag)
