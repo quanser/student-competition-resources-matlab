@@ -131,6 +131,9 @@ disp('Connected')
 
 %% Signage
 
+x_offset = 0.13;
+y_offset = 1.67;
+
 % stop signs
 %parking lot
 myStopSign = QLabsStopSign(qlabs);
