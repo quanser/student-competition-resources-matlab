@@ -1,4 +1,4 @@
-% This script is intended to set up a Windows PC with the QLabs add ons and
+% This script is intended to set up a Windows PC with the Quanser Interactive Labs (QLabs) add ons and
 % competition resources
 % Assumptions:
 %   - No QLabs is installed
@@ -69,7 +69,7 @@ try
         disp(cmdout)
         error('git is still not being detected after attempted installation ....')
     end
-    updateProgress(2, 'Git is installed. Setting up the QLabs add-on ....');
+    updateProgress(2, 'Git is installed. Setting up the Quanser Interactive Labs (QLabs) add-on ....');
     
     %% Setup QLabs
     

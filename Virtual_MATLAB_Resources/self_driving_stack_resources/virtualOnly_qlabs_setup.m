@@ -14,12 +14,12 @@ calibrationPresent = false; % never need to calibrate because we use autolocaliz
 desireToCalibrate = false;
 desireForRealScenario = false;
 
-% check that qlabs is installed
+% check that Quanser Interactive Labs (QLabs) is installed
 qlabsDir = fullfile(getenv('ProgramFiles'), 'Quanser', 'Quanser Interactive Labs');
 if isfolder(qlabsDir)
-    disp('QLabs Installation Detected ... nice!')
+    disp('Quanser Interactive Labs (QLabs) Installation Detected ... nice!')
 else
-    error('QLabs not detected! Ensure QLabs has been installed according the the competition page instructions ...')
+    error('Quanser Interactive Labs (QLabs) not detected! Ensure QLabs has been installed according the the competition page instructions ...')
 end
 
 % check that the Documents folder exists
@@ -249,7 +249,10 @@ function successFlag = setupQLabs(spawn_option, manual_location)
     % start rt model for qcar2
     file_workspace = fullfile(getenv('RTMODELS_DIR'), 'QCar2', 'QCar2_Workspace_studio.rt-win64');
     pause(2)
-    system(['quarc_run -D -r -t tcpip://localhost:17000 ', file_workspace]);
+    [status, cmdout] = system(['quarc_run -D -r -t tcpip://localhost:17000 ', file_workspace]);
+    if status ~= 0
+        fprintf('Something may have gone wrong when deploying the rtModel %s', cmdout)
+    end
     pause(3)
 
     qlabs.close();
