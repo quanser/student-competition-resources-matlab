@@ -281,6 +281,10 @@ try
     % Ensure they are directed to register for QLabs
     qlabsRegisterURL = 'https://portal.quanser.com/Accounts/Register';
     web(qlabsRegisterURL);
+    % also print the registration details in the Command Window so they are not lost when the dialog closes
+    fprintf('\nTo use the QCar2 module you need to register for QLabs, if you have not done so in the past.\n')
+    fprintf('Registration page: %s\n', qlabsRegisterURL)
+    fprintf('After registering it can take 1-2 days to be added. If you do not receive access in that time period, please email the student competition coordinator.\n')
     prompt = ['At this point, you will need to register for QLabs to gain access to the QCar2 module IF you have not done so in the past! ' ...
         'The registration page should be opened in your browser. Please go fill in the form and wait to be added. ' ...
         'This could take 1-2 days until you have access. If you do not receive access in that time period, please email the student competition coordinator.'];
