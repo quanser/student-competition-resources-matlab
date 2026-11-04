@@ -4,20 +4,20 @@ function issueFlag = Setup_QCar2_Params_Addons(qcar_types, map_type)
 
     % perform check that inputs are valid
     if ~(qcar_types == 1) && ~(qcar_types == 2)
-        print('Invalid QCar Type!')
-        issueFlag = True;
+        fprintf('Invalid QCar Type!\n')
+        issueFlag = true;
         return
     end
     % check if map input is allowed
     if ~(map_type == 1) && ~(map_type == 2)
-        print('Invalid Map Type!')
+        fprintf('Invalid Map Type!\n')
         issueFlag = true;
-        returnZ
+        return
     end
 
     % check if the paths file exists in the active dir
     if ~exist('SDCS_Paths_7.mat','file')
-        print('Missing paths file (SDCS_Paths_7.mat)')
+        fprintf('Missing paths file (SDCS_Paths_7.mat)\n')
         issueFlag = true;
         return
     end
