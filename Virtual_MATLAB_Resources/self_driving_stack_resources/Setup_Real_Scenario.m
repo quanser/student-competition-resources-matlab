@@ -6,7 +6,28 @@ function cleanupQLabs(qlabs)
     qlabs.close()
 end
 
-function trafficLightController(qlabs)
+% Stop Window Functions
+
+function stopFig = createStopWindow()
+    % Create a small window that does not block the script. Clicking the
+    % button (or closing the window) tells the traffic light loop to stop.
+    stopFig = uifigure('Name', 'Traffic Light Controller', ...
+        'Position', [100 100 360 140], 'WindowStyle', 'alwaysontop');
+    stopFig.UserData = struct('stop', false);
+    uilabel(stopFig, 'Text', 'The traffic lights are running.', ...
+        'Position', [20 90 320 30], 'FontSize', 16);
+    uibutton(stopFig, 'push', 'Text', 'Stop Traffic Lights', ...
+        'Position', [80 25 200 45], 'FontSize', 16, ...
+        'ButtonPushedFcn', @(~,~) requestStop(stopFig));
+    stopFig.CloseRequestFcn = @(~,~) requestStop(stopFig);
+end
+
+function requestStop(stopFig)
+    % Set the flag that the traffic light loop checks
+    stopFig.UserData.stop = true;
+end
+
+function trafficLightController(qlabs, stopFig)
 
     disp('running traffic controller')
     try
@@ -28,7 +49,7 @@ function trafficLightController(qlabs)
 
         cleanup = onCleanup(@()cleanupQLabs(qlabs));
     
-        while(true)
+        while isvalid(stopFig) && ~stopFig.UserData.stop
     
             %intersection 1
             disp('in loop')
@@ -62,10 +83,19 @@ function trafficLightController(qlabs)
     
             intersection1Flag = mod((intersection1Flag + 1),4);
     
-            pause(5)
+            % wait 5 seconds in short steps so the stop button responds quickly
+            for waitStep = 1:50
+                pause(0.1)
+                if ~isvalid(stopFig) || stopFig.UserData.stop
+                    break
+                end
+            end
         end
+
+        disp('Stop requested, shutting down the traffic lights')
     
-    catch
+    catch errorMsg
+        disp(errorMsg.message)
         qlabs.close()
     end
 end
@@ -98,38 +128,6 @@ if connection_established == false
 end
 
 disp('Connected')
-
-% Flooring
-
-x_offset = 0.13;
-y_offset = 1.67;
-hFloor = QLabsQCarFlooring(qlabs);
-hFloor.spawn_degrees([x_offset, y_offset, 0.001],[0, 0, -90]);
-
-
-%region: Walls
-hWall = QLabsWalls(qlabs);
-hWall.set_enable_dynamics(false);
-
-for y = 0:4
-    hWall.spawn_degrees([-2.4 + x_offset, (-y*1.0)+2.55 + y_offset, 0.001], [0, 0, 0]);
-end
-
-for x = 0:4
-    hWall.spawn_degrees([-1.9+x + x_offset, 3.05+ y_offset, 0.001], [0, 0, 90]);
-end
-
-for y = 0:5
-    hWall.spawn_degrees([2.4+ x_offset, (-y*1.0)+2.55 + y_offset, 0.001], [0, 0, 0]);
-end
-
-for x = 0:3
-    hWall.spawn_degrees([-0.9+x+ x_offset, -3.05+ y_offset, 0.001], [0, 0, 90]);
-end
-
-hWall.spawn_degrees([-2.03 + x_offset, -2.275+ y_offset, 0.001], [0, 0, 48]);
-hWall.spawn_degrees([-1.575+ x_offset, -2.7+ y_offset, 0.001], [0, 0, 48]);
-
 
 %% Signage
 
@@ -249,20 +247,18 @@ mySpline.spawn_degrees ([-0.05, -1.02, 0.006], ...
                         [0.38, 0.02, 0.001], ...
                         false);
 
-%% Cameras
-%spawn cameras 1. birds eye, 2. edge 1, possess the qcar
+%% Scenario Pop Up that will Stop Everything
+% Run traffic controller with a window that can stop it
+stopFig = createStopWindow();
+trafficLightController(qlabs, stopFig)
 
-camera1Loc = [0.15, 1.7, 5];
-camera1Rot = [0, 90, 0];
-camera1 = QLabsFreeCamera(qlabs);
-camera1.spawn_degrees(camera1Loc, camera1Rot);
-
-camera1.possess();
-
-camera2Loc = [-0.36+ x_offset, -3.691+ y_offset, 2.652];
-camera2Rot = [0, 47, 90];
-camera2=QLabsFreeCamera(qlabs);
-camera2.spawn_degrees (camera2Loc, camera2Rot);
-
-% Run traffic controller
-trafficLightController(qlabs)
+% Close the stop window and, if this is the separate MATLAB instance started
+% without the desktop, close that instance as well
+if isvalid(stopFig)
+    delete(stopFig)
+end
+disp('Traffic lights stopped.')
+if ~usejava('desktop')
+    pause(1)
+    exit
+end
