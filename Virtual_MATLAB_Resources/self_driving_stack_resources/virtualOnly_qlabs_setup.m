@@ -22,8 +22,15 @@ else
     error('QLabs not detected! Ensure QLabs has been installed according the the competition page instructions ...')
 end
 
+% check that the Documents folder exists
+documents_dir = fullfile(getenv('USERPROFILE'), 'Documents');
+if ~isfolder(documents_dir)
+    fprintf('expected documents dir: \n%s\n', documents_dir)
+    error('A Documents folder is needed for this script to work. Please run the setup steps first.')
+end
+
 % check that QAL_DIR is set
-qalDir = fullfile(getenv('USERPROFILE'), 'Documents', 'Quanser');
+qalDir = fullfile(documents_dir, 'Quanser');
 if ~isfolder(qalDir)
     disp('This script expects to find qvl libraries here:')
     disp(qalDir)
@@ -44,7 +51,7 @@ end
 
 % check that we have the the competition repo and it is our current active
 % directory
-comp_dir = fullfile(getenv('USERPROFILE'), 'Documents', 'student-competition-resources-matlab', 'Virtual_MATLAB_Resources', 'self_driving_stack_resources');
+comp_dir = fullfile(documents_dir, 'student-competition-resources-matlab', 'Virtual_MATLAB_Resources', 'self_driving_stack_resources');
 if ~isfolder(comp_dir)
     disp('This script expects to find the competition resources here:')
     disp(comp_dir)

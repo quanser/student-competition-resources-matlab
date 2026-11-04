@@ -161,10 +161,22 @@ try
     %% Reuseable Path Variables and Path Checking
     user_path = getenv('userprofile');
     documents_dir = fullfile(user_path, 'Documents');
-    % check for existence
+    % check for existence, and offer to create the Documents folder if it is missing
     if ~isfolder(documents_dir)
         fprintf('expected documents dir: \n%s\n', documents_dir)
-        error('cannot find documents dir!')
+        prompt = 'A Documents folder was not found. Would you like to create it?';
+        answer = questdlg(prompt, 'Create Documents folder?', 'yes', 'no', 'yes');
+        switch answer
+            case 'yes'
+                [folderCreated, folderMsg] = mkdir(documents_dir);
+                if ~folderCreated
+                    error('Could not create the Documents folder: %s', folderMsg)
+                end
+                fprintf('Created the Documents folder:\n%s\n', documents_dir)
+            otherwise
+                % the answer was no, or the dialog was closed
+                error('A Documents folder is needed for this script to work. Please create one and re-run the script.')
+        end
     end
     
     % ensure this quanser_dir doesn't already exist
