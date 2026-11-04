@@ -23,7 +23,7 @@ Follow the below instructions to make sure everything is set up correctly and le
 
     ![qlabs plane](../Pictures/plane_world_qlabs.png)
 
-3. Run the `virtualONLY_qlabs_setup.m` script and when prompted to `Setup real scenario?`, type `n`
+3. Run the `virtualOnly_qlabs_setup.m` script and when prompted to `Setup real scenario?`, type `n`
 
 4. Use `run` button to run the simulink model once it opens
 
@@ -37,13 +37,13 @@ If something is not working correctly, please double-check that you have gone th
 
 ## MATLAB Setup Real Scenario
 
-In the `Virtual_Setup_Competition_Map.m` script, you will be prompted to setup the real scenario if it is desired.
+In the `virtualOnly_qlabs_setup.m` script, you will be prompted to setup the real scenario if it is desired.
 
 A more realistic traffic scenario is provided through the `Setup_Real_Scenario.m` file. This script spawns signage and traffic lights.
 
-This script runs CONTINUOUSLY in a loop to control the traffic lights. If this scenario is desired, selecting `y` in the `Virtual_Setup_Competition_Map.m` script when prompted will open a MATLAB Command Window to run the Real Scenario in a separate instance of MATLAB.
+This script runs CONTINUOUSLY in a loop to control the traffic lights. If this scenario is desired, selecting `y` in the `virtualOnly_qlabs_setup.m` script when prompted will open a MATLAB Command Window to run the Real Scenario in a separate instance of MATLAB. A small `Traffic Light Controller` pop-up window will also appear and stay on top of your other windows.
 
-When you would like to END the scenario, type `ctrl + C` in the MATLAB Command Window running the loop and it will kill the script.
+When you would like to END the scenario, click the `Stop Traffic Lights` button in the `Traffic Light Controller` pop-up window. The traffic lights will stop and the separate instance of MATLAB will close. Closing the pop-up window with the X in its top corner has the same effect.
 
 ## Next Steps
 
