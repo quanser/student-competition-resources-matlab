@@ -253,7 +253,7 @@ function simLaunch(desireToCalibrate, externalModeFlag)
             error('issue setting up the parameters')
         end
         % open model
-        modelName = 'VIRTUAL_self_driving_stack_autoLocalize';  
+        modelName = 'VIRTUAL_self_driving_stack_autoLocalize_v2';  
         open_system(modelName)
         % if external mode flag is set, config model accordingly
         if externalModeFlag == true
