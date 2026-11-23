@@ -253,6 +253,7 @@ mySpline.spawn_degrees ([-0.05, -1.02, 0.006], ...
 %% Scenario Pop Up that will Stop Everything
 % Run traffic controller with a window that can stop it
 stopFig = createStopWindow();
+pause(1)
 trafficLightController(qlabs, stopFig)
 
 % Close the stop window and, if this is the separate MATLAB instance started
